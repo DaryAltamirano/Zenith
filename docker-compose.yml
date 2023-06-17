@@ -9,6 +9,7 @@ services:
       - "8000:8000"
     environment:
       MYSQL_DATABASE: zenith
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
     depends_on:
       - db
@@ -20,6 +21,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: zenith
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql-data:/var/lib/mysql

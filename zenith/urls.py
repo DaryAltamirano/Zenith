@@ -25,7 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sensor/', include('sensor_driver.urls')),
     path('/', RedirectView.as_view(url='/sensor/', permanent=True)),
-
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

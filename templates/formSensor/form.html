@@ -1,0 +1,90 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div>
+        <h2 class="text-center">Create new sensor</h2>
+
+    </div>
+    <div class="margin-table-x margin-table-y">
+
+        <div class="d-flex flex-row-reverse ">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                    class="fa fa-plus-square" aria-hidden="true"></i> | Zone
+            </button>
+        </div>
+    </div>
+    <form class="margin-table-x row g-3 justify-content-around">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Zone</label>
+            <select id="inputState" class="form-select">
+                {% for zone in zones %}
+                    <option>{{ zone.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label for="serial_uuid" class="form-label">Serial - UUID</label>
+            <input type="text" class="form-control" id="serial_uuid">
+        </div>
+        <div class="col-md-3">
+            <label for="protocolState" class="form-label">Protocol</label>
+            <select id="protocolState" class="form-select">
+                {% for protocol in protocols %}
+                    <option>{{ protocol }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="body_request" class="form-label">Body Request</label>
+            <textarea class="form-control" id="body_request" rows="3"></textarea>
+        </div>
+        <div class="col-md-12 d-flex flex-row-reverse">
+            <button type="submit" class="btn btn-primary mx-1">Save</button>
+            <a href="{% url 'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+
+        </div>
+    </form>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New zone</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    let selectProtocol = document.getElementById("protocolState")
+
+    selectProtocol.addEventListener('change', function (e) {
+        let select = e.currentTarget.value
+        if (select === "HTTP") {
+
+        } else if (select === "MQTT") {
+
+        }
+
+    });
+</script>
+{% endblock %}
+

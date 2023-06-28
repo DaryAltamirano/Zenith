@@ -34,12 +34,36 @@
         <div class="col-md-3">
             <label for="protocolState" class="form-label">Protocol</label>
             <select id="protocolState" class="form-select">
-                {% for protocol in protocols %}
-                    <option>{{ protocol }}</option>
-                {% endfor %}
+                    <option selected>HTTP</option>
+                    <option>MQTT</option>
+
+
+{#                {% for protocol in protocols %}#}
+{#                    <option>{{ protocol }}</option>#}
+{#                {% endfor %}#}
             </select>
         </div>
 
+        <div id="protocol_http" class="d-flex justify-content-evenly">
+            <div class="col-md-2">
+                <label for="timesState" class="form-label">Times</label>
+                <select id="timesState" class="form-select">
+                    {% for time in times %}
+                        <option>{{ time }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-1">
+                <label for="Number" class="form-label">Number</label>
+                <input type="number" class="form-control" id="Number">
+            </div>
+        </div>
+            <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
+            <div class="col-md-1">
+                <label for="Number" class="form-label">Number</label>
+                <input type="number" class="form-control" id="Number">
+            </div>
+        </div>
         <div class="mb-3">
             <label for="body_request" class="form-label">Body Request</label>
             <textarea class="form-control" id="body_request" rows="3"></textarea>
@@ -51,6 +75,8 @@
         </div>
     </form>
 
+
+    {#    MODAL    #}
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -73,18 +99,26 @@
             </div>
         </div>
     </div>
-<script>
-    let selectProtocol = document.getElementById("protocolState")
 
-    selectProtocol.addEventListener('change', function (e) {
-        let select = e.currentTarget.value
-        if (select === "HTTP") {
 
-        } else if (select === "MQTT") {
+    <script>
+        let selectProtocol = document.getElementById("protocolState")
 
-        }
+        selectProtocol.addEventListener('change', function (e) {
+            let select = e.currentTarget.value
 
-    });
-</script>
+            if (select === "HTTP") {
+                document.getElementById("protocol_http").classList.remove("d-none")
+                document.getElementById("protocol_mqtt").classList.add("d-none")
+                console.log("hola")
+            } else if (select === "MQTT") {
+                document.getElementById("protocol_mqtt").classList.remove("d-none")
+                document.getElementById("protocol_http").classList.add("d-none")
+                console.log("2")
+
+            }
+
+        });
+    </script>
 {% endblock %}
 

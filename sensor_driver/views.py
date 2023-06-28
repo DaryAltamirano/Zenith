@@ -10,5 +10,6 @@ def listSensor(request):
 
 def formSensor(request):
     protocols = ["HTTP", "MQTT"]
+    times = ["Second", "Minutes", "Hours"]
     zones = Zone.objects.all()
-    return render(request, 'formSensor/form.html', {'protocols':protocols, 'zones': zones})
+    return render(request, 'formSensor/form.html', {'protocols':protocols, 'zones': zones, "times": times})

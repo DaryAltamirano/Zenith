@@ -13,7 +13,8 @@
             </button>
         </div>
     </div>
-    <form class="margin-table-x row g-3 justify-content-around">
+    <form id="sensorForm" method="post" action="{% url 'postSensor' %}" class="margin-table-x row g-3 justify-content-around">
+     {% csrf_token %}
         <div class="col-md-6">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name">
@@ -36,11 +37,6 @@
             <select id="protocolState" class="form-select">
                     <option selected>HTTP</option>
                     <option>MQTT</option>
-
-
-{#                {% for protocol in protocols %}#}
-{#                    <option>{{ protocol }}</option>#}
-{#                {% endfor %}#}
             </select>
         </div>
 
@@ -69,7 +65,7 @@
             <textarea class="form-control" id="body_request" rows="3"></textarea>
         </div>
         <div class="col-md-12 d-flex flex-row-reverse">
-            <button type="submit" class="btn btn-primary mx-1">Save</button>
+            <button id="submitSensorForm" class="btn btn-primary mx-1">Save</button>
             <a href="{% url 'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
 
         </div>
@@ -85,7 +81,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post">
+                    <form id="zoneForm" method="post" action="{% url 'formSensor' %}" >
+                        {% csrf_token %}
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Name:</label>
                             <input type="text" class="form-control" id="recipient-name">
@@ -94,7 +91,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button id="submitZoneForm" type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </div>
@@ -110,15 +107,32 @@
             if (select === "HTTP") {
                 document.getElementById("protocol_http").classList.remove("d-none")
                 document.getElementById("protocol_mqtt").classList.add("d-none")
-                console.log("hola")
+
             } else if (select === "MQTT") {
                 document.getElementById("protocol_mqtt").classList.remove("d-none")
                 document.getElementById("protocol_http").classList.add("d-none")
-                console.log("2")
-
             }
 
         });
+
+        let submitSensorForm = document.getElementById("submitSensorForm");
+        let sensorForm = document.getElementById("sensorForm");
+
+        submitSensorForm.addEventListener("click", (e) => {
+            sensorForm.submit();
+        })
+
+        let submitZoneForm = document.getElementById("submitZoneForm");
+        let zoneForm = document.getElementById("zoneForm");
+
+        submitZoneForm.addEventListener("click", (e) => {
+            zoneForm.submit();
+        }
+  )
+
+
+
+
     </script>
 {% endblock %}
 

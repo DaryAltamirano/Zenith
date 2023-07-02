@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from sensor_driver.models import Sensor, Zone
+from sensor_driver.models import Sensor, Zone, Request as Request_Model
 from django.shortcuts import redirect
+from rest_framework import status
+from rest_framework.decorators import api_view
+
 
 def listSensor(request):
-    from django.forms import models
     sensors = Sensor.objects.all()
     return render(request, 'listSensor/list.html', {"sensors": sensors})
+
 
 def formSensor(request):
     protocols = ["HTTP", "MQTT"]
@@ -14,14 +17,25 @@ def formSensor(request):
     zones = Zone.objects.all()
     return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "times": times})
 
+
+@api_view(['POST'])
 def postZone(request):
-    if request.method == 'POST':
-        return redirect("/sensor/form/")
+    data = request.data
+    zone = Zone(name=data.get("name"))
+    zone.save()
+    return redirect("/sensor/form/")
 
-    return JsonResponse({"method": "get"})
 
+@api_view(['POST'])
 def postSensor(request):
-    if request.method == 'POST':
-        return redirect("/sensor/list/")
+    data = request.data
 
-    return JsonResponse({"method": "get"})
+    request_data = Request_Model(format=data.get('body'))
+    request_data.save()
+
+    zone = Zone.objects.get(id = data.get('zone'))
+
+    sensor = Sensor(name=data.get('body'), series=data.get('serial'), protocol=data.get('protocol'),
+                    request=request_data, zone= zone)
+    sensor.save()
+    return redirect("/sensor/list/")

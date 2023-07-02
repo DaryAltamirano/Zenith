@@ -13,60 +13,61 @@
             </button>
         </div>
     </div>
-    <form id="sensorForm" method="post" action="{% url 'postSensor' %}" class="margin-table-x row g-3 justify-content-around">
-     {% csrf_token %}
+    <form id="sensorForm" method="post" action="{% url 'postSensor' %}"
+          class="margin-table-x row g-3 justify-content-around">
+        {% csrf_token %}
         <div class="col-md-6">
             <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name">
+            <input required type="text" name="name" class="form-control" id="name">
         </div>
         <div class="col-md-3">
             <label for="inputState" class="form-label">Zone</label>
-            <select id="inputState" class="form-select">
+            <select required id="inputState" name="zone" class="form-select">
                 {% for zone in zones %}
-                    <option>{{ zone.name }}</option>
+                    <option value={{ zone.id }}>{{ zone.name }}</option>
                 {% endfor %}
             </select>
         </div>
 
         <div class="col-md-6">
-            <label for="serial_uuid" class="form-label">Serial - UUID</label>
-            <input type="text" class="form-control" id="serial_uuid">
+            <label for="serial_uuid" class="form-label">Serial</label>
+            <input required type="text" name="serial" class="form-control" id="serial_uuid">
         </div>
         <div class="col-md-3">
             <label for="protocolState" class="form-label">Protocol</label>
-            <select id="protocolState" class="form-select">
-                    <option selected>HTTP</option>
-                    <option>MQTT</option>
+            <select id="protocolState" name="protocol" class="form-select">
+                <option selected>HTTP</option>
+                <option>MQTT</option>
             </select>
         </div>
 
         <div id="protocol_http" class="d-flex justify-content-evenly">
             <div class="col-md-2">
                 <label for="timesState" class="form-label">Times</label>
-                <select id="timesState" class="form-select">
+                <select id="timesState" name="times" class="form-select">
                     {% for time in times %}
                         <option>{{ time }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <div class="col-md-1">
+            <div class="col-md-1">*
                 <label for="Number" class="form-label">Number</label>
-                <input type="number" class="form-control" id="Number">
+                <input type="number" name="number" class="form-control" id="Number">
             </div>
         </div>
-            <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
+        <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
             <div class="col-md-1">
                 <label for="Number" class="form-label">Number</label>
-                <input type="number" class="form-control" id="Number">
+                <input type="number" name="number" class="form-control" id="Number">
             </div>
         </div>
         <div class="mb-3">
             <label for="body_request" class="form-label">Body Request</label>
-            <textarea class="form-control" id="body_request" rows="3"></textarea>
+            <textarea class="form-control" name="body" id="body_request" rows="3"></textarea>
         </div>
         <div class="col-md-12 d-flex flex-row-reverse">
-            <button id="submitSensorForm" class="btn btn-primary mx-1">Save</button>
-            <a href="{% url 'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+            <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1"/>
+            <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
 
         </div>
     </form>
@@ -80,19 +81,20 @@
                     <h1 class="modal-title fs-5" id="exampleModalLabel">New zone</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form id="zoneForm" method="post" action="{% url 'formSensor' %}" >
-                        {% csrf_token %}
+                <form id="zoneForm" method="post" action="{% url 'postZone' %}">
+                    {% csrf_token %}
+                    <div class="modal-body">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Name:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input required type="text" name="name" class="form-control" id="recipient-name">
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="submitZoneForm" type="button" class="btn btn-primary">Save</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input required type="submit" value="Save" id="submitZoneForm" class="btn btn-primary"/>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
@@ -106,31 +108,16 @@
 
             if (select === "HTTP") {
                 document.getElementById("protocol_http").classList.remove("d-none")
+                document.getElementById("protocol_http").required = true;
                 document.getElementById("protocol_mqtt").classList.add("d-none")
 
             } else if (select === "MQTT") {
                 document.getElementById("protocol_mqtt").classList.remove("d-none")
+                document.getElementById("protocol_mqtt").required = true;
                 document.getElementById("protocol_http").classList.add("d-none")
             }
 
         });
-
-        let submitSensorForm = document.getElementById("submitSensorForm");
-        let sensorForm = document.getElementById("sensorForm");
-
-        submitSensorForm.addEventListener("click", (e) => {
-            sensorForm.submit();
-        })
-
-        let submitZoneForm = document.getElementById("submitZoneForm");
-        let zoneForm = document.getElementById("zoneForm");
-
-        submitZoneForm.addEventListener("click", (e) => {
-            zoneForm.submit();
-        }
-  )
-
-
 
 
     </script>

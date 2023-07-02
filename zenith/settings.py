@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sensor_driver.apps.SensorDriverConfig',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

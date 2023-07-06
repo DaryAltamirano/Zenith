@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zenith-beta2
+  namespace: zenith-beta2
+  labels:
+    app: zenith
+

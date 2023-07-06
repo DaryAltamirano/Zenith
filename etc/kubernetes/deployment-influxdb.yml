@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+   name: influxdb
+   namespace: zenith-beta2
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: influxdb
+   template:
+      metadata:
+         labels:
+            app: influxdb
+      spec:
+         containers:
+            - name: influxdb
+              image: quay.io/influxdb/influxdb:v2.0.2
+              volumeMounts:
+              - mountPath: /root/.influxdbv2/
+                name: influxdb-data
+              ports:
+                - containerPort: 8086
+         volumes:
+         - name: influxdb-data
+           hostPath:
+#             sudo mkdir /mnt/data/influxdb
+              path: /mnt/data/influxdb
+              type: Directory

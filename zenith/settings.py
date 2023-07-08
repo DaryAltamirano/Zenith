@@ -86,6 +86,15 @@ DATABASES = {
     }
 }
 
+RABBITMQ = {
+    "default": {
+        "PORT": 5672,
+        "HOST": "rabbitmq",
+        "USER": "guest",
+        "PASSWORD": "guest",
+        "QUEUE": "request_parsing"
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

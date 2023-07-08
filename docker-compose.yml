@@ -13,6 +13,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
     depends_on:
       - db
+      - rabbitmq
 
   db:
     container_name: mysql-zenith
@@ -27,5 +28,19 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql-data:/var/lib/mysql
+
+  rabbitmq:
+    image: rabbitmq:3.11-management
+    container_name: rabbitmq-test
+    tty: true
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+
+
 volumes:
   mysql-data:

@@ -25,7 +25,10 @@ class ConnectionRabbitMQ:
     def basicConsume(self, channel, callback, queue = None): 
         if queue == None:
             queue = self.queue
-
+        else:
+            channel.queue_declare(queue)
+        
+        
         channel.basic_consume(queue=queue, on_message_callback=callback, auto_ack=True)
         
         print(' [*] Waiting for messages. To exit press CTRL+C')

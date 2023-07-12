@@ -14,7 +14,8 @@ services:
     depends_on:
       - db
       - rabbitmq
-
+    networks:
+      - zenith
   db:
     container_name: mysql-zenith
     image: mysql:8
@@ -40,6 +41,13 @@ services:
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "guest"
       RABBITMQ_DEFAULT_VHOST: "/"
+
+    networks:
+      - zenith
+
+networks:
+  zenith:
+    driver: bridge
 
 
 volumes:

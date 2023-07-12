@@ -1,6 +1,4 @@
-from datetime import datetime, timezone
 from django.core.management.base import BaseCommand
-from django.utils import timezone
 from sensor_driver.management.commands.supports.ConnectionRabbitMQ import ConnectionRabbitMQ
 import sys
 import pika

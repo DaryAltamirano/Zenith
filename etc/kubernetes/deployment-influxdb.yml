@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
    name: influxdb
-   namespace: zenith-beta2
+   namespace: zenith-beta
 spec:
    replicas: 1
    selector:

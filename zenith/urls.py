@@ -23,7 +23,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sensor/', include('sensor_driver.urls')),
+    path('sensor/', include('sensor_driver.urls'), name="base"),
     path('', RedirectView.as_view(url='/sensor/', permanent=True)),
 ]
 

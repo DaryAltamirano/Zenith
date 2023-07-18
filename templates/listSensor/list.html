@@ -1,20 +1,22 @@
 {% extends "index.html" %}
 
 {% block body %}
-    <div class="margin-table-x margin-table-y">
-        <div class="d-flex flex-row-reverse">
-            <a href="{% url 'formSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square" aria-hidden="true"></i> | Añadir
-            </a>
-        </div>
+<div class="margin-table-x margin-table-y">
+    <div class="d-flex flex-row-reverse">
+        <a href="{% url 'formSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
+                aria-hidden="true"></i> | Añadir
+        </a>
+    </div>
 
-        {% for sensor in sensors %}
+    {% for sensor in sensors %}
 
-        {% endfor %}
+    {% endfor %}
 
 
-        <div class="my-3">
-            <table class="table">
-                <thead>
+    <div class="my-3">
+        {% csrf_token %}
+        <table class="table">
+            <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre</th>
@@ -22,27 +24,57 @@
                     <th scope="col">Metodo</th>
                     <th class="text-center" scope="col">Acciones</th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 {% for sensor in sensors %}
-                    <tr>
-                        <th scope="row">{{ sensor.id }}</th>
-                        <td>{{ sensor.name }}</td>
-                        <td>{{ sensor.zone.name }}</td>
-                        <td>{{ sensor.protocol }}</td>
-                        <td class="text-center">
-                            <button type="button" class="btn btn-warning">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </button>
-                        </td>
-                    </tr>
+                <tr>
+                    <th scope="row">{{ sensor.id }}</th>
+                    <td>{{ sensor.name }}</td>
+                    <td>{{ sensor.zone.name }}</td>
+                    <td>{{ sensor.protocol }}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-warning" onclick=updateSensor({{ sensor.id }})>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" onclick=deleteSensor({{ sensor.id }})>
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
                 {% endfor %}
 
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
+</div>
+<script>
+
+    var BASE_URL = "{{ request.scheme }}://{{ request.get_host }}";
+    function updateSensor(id) {
+        window.location.href =  BASE_URL + "/sensor/updateFormSensor/" + id;
+    }
+
+    function deleteSensor(id) {
+        url = BASE_URL + "/sensor/deleteSensor/" + id
+        let csrfToken = document.querySelector('input[name=csrfmiddlewaretoken]').value;
+
+        fetch(url, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+        })
+            .then(response => {
+                if (response.ok) {
+                    location.reload()
+                } else {
+                    console.log('Error');
+                }
+            })
+            .catch(error => {
+                console.log('Error:', error);
+            });
+    } 
+</script>
 {% endblock %}

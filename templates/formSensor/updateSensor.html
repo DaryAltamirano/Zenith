@@ -1,0 +1,75 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+<div>
+    <h2 class="text-center">Create new sensor</h2>
+
+</div>
+<form id="sensorForm" method="POST" action="{% url 'updateSensor' id=sensor.id %}"
+    class="margin-table-x row g-3 justify-content-around">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input required type="text" name="name" class="form-control" id="name" value="{{ sensor.name }}">
+    </div>
+    <div class="col-md-3">
+        <label for="inputState" class="form-label">Zone</label>
+        <select required id="inputState" name="zone" class="form-select">
+            <option selected value={{ zone.id }}>{{ zone.name }}</option>
+        </select>
+    </div>
+
+    <div class="col-md-6">
+        <label for="serial_uuid" class="form-label">Serial</label>
+        <input required type="text" name="serial" class="form-control" id="serial_uuid" value="{{ sensor.series }}">
+    </div>
+
+    <div id="protocol_http">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-10">
+                <label for="uri" class="form-label">uri</label>
+                <input required type="text" name="uri" class="form-control" id="uri" value= "{{ scheduler.uri }}">
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly">
+            <div class="col-md-5">
+                <label for="measure" class="form-label">measure</label>
+                <select required id="measure" name="measure" class="form-select">
+                    <option selected >{{ scheduler.measure }}</option>
+                    {% for measure in measures %}
+                    <option>{{ measure }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label for="number" class="form-label">Number</label>
+                <input required type="number" name="number" class="form-control" id="number" value={{ scheduler.timeline }}>
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly m-1">
+            <div class="mb-1">
+                <label for="body_params" class="form-label">Params: </label>
+                <textarea required class="form-control" name="body_params" id="body_params" cols=50 rows=10>{{ request_data.params }}</textarea>
+            </div>
+            <div class="mb-1">
+                <label for="body_headers" class="form-label">Headers</label>
+                <textarea required class="form-control" name="body_headers" id="body_headers" cols=50 rows=10>{{ request_data.headers }}</textarea>
+            </div>
+        </div>
+    </div>
+    <div class="mb-1">
+        <label for="body_request" class="form-label">Body Request</label>
+        <textarea class="form-control" name="body_request" id="body_request" cols=50 rows=10 >{{ sensor.format }}</textarea>
+    </div>
+    <div class="col-md-12 d-flex flex-row-reverse">
+        <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1" />
+        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+    </div>
+</form>
+
+
+<script>
+
+</script>
+{% endblock %}

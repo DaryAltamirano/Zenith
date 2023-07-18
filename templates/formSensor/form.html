@@ -41,30 +41,47 @@
         </select>
     </div>
 
-    <div id="protocol_http" class="d-flex justify-content-evenly">
-        <div class="col-md-2">
-            <label for="timesState" class="form-label">Times</label>
-            <select id="timesState" name="times" class="form-select">
-                {% for time in times %}
-                <option>{{ time }}</option>
-                {% endfor %}
-            </select>
+    <div id="protocol_http">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-10">
+                <label for="uri" class="form-label">uri</label>
+                <input required type="text" name="uri" class="form-control" id="uri">
+            </div>
         </div>
-        <div class="col-md-1">*
-            <label for="Number" class="form-label">Number</label>
-            <input type="number" name="number" class="form-control" id="Number">
+        <div class="d-flex justify-content-evenly">
+            <div class="col-md-5">
+                <label for="measure" class="form-label">measure</label>
+                <select id="measure" name="measure" class="form-select">
+                    {% for measure in measures %}
+                    <option>{{ measure }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label for="number" class="form-label">Number</label>
+                <input type="number" name="number" class="form-control" id="number">
+            </div>
+        </div>
+        <div class="d-flex justify-content-evenly m-1">
+            <div class="mb-1">
+                <label for="body_params" class="form-label">Params: </label>
+                <textarea class="form-control" name="body_params" id="body_params" cols=50 rows=10></textarea>
+            </div>
+            <div class="mb-1">
+                <label for="body_headers" class="form-label">Headers</label>
+                <textarea class="form-control" name="body_headers" id="body_headers" cols=50 rows=10></textarea>
+            </div>
         </div>
     </div>
     <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
         <div class="col-md-1">
-            <label for="Number" class="form-label">Number</label>
-            <input type="number" name="number" class="form-control" id="Number">
+            <label for="numberasas" class="form-label">Number</label>
+            <input type="number" name="numberasas" class="form-control" id="numberasas">
         </div>
     </div>
-    <div class="mb-3">
+    <div class="mb-1">
         <label for="body_request" class="form-label">Body Request</label>
-        <textarea class="form-control" name="body" id="body_request" cols=50 rows=10></textarea>
-
+        <textarea class="form-control" name="body_request" id="body_request" cols=50 rows=10></textarea>
     </div>
     <div class="col-md-12 d-flex flex-row-reverse">
         <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1" />
@@ -106,14 +123,14 @@
     let textAreaForm = document.getElementById("body_request")
 
     textAreaForm.addEventListener('change', jsonPretty)
-          //  var myJsObj = {'id': 'dd85475c-a5ef-4a15-b00f-206e408528b2', 'info.aqi': {'ts': '2023-07-10T01:27:29Z', 'data': {'humidity': 68.16, 'pm10': 16, 'pm25': 15, 'rco2 (ppm)': 1598, 'temp': 28.68}}};
+    //  var myJsObj = {'id': 'dd85475c-a5ef-4a15-b00f-206e408528b2', 'info.aqi': {'ts': '2023-07-10T01:27:29Z', 'data': {'humidity': 68.16, 'pm10': 16, 'pm25': 15, 'rco2 (ppm)': 1598, 'temp': 28.68}}};
 
-        // using JSON.stringify pretty print capability:
-        //var str = JSON.stringify(myJsObj, undefined, 4);
+    // using JSON.stringify pretty print capability:
+    //var str = JSON.stringify(myJsObj, undefined, 4);
 
-        // display pretty printed object in text area:
-        //document.getElementById('body_request').innerHTML = str;
-        //console.log(textAreaForm.value)
+    // display pretty printed object in text area:
+    //document.getElementById('body_request').innerHTML = str;
+    //console.log(textAreaForm.value)
     selectProtocol.addEventListener('change', function (e) {
         let select = e.currentTarget.value
 
@@ -131,7 +148,7 @@
     });
 
     function jsonPretty(e) {
-            console.log(e.value)
+        console.log(e.value)
     }
 
 

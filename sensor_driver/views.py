@@ -1,5 +1,7 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse
+from sensor_driver.management.commands.supports.ConnectionRabbitMQ import ConnectionRabbitMQ
 from sensor_driver.models import Sensor, Zone, Request as Request_Model, Scheduler
 from django.shortcuts import redirect
 from rest_framework import status
@@ -59,6 +61,10 @@ def updateSensor(request, id):
     scheduler.timeline= data.get('number')
     scheduler.save()
     
+    rabbitMq = ConnectionRabbitMQ()
+    channel = rabbitMq.channel()
+
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id }), "update_sensor")
     return redirect("/sensor/list/")
 
 @api_view(['POST'])
@@ -99,8 +105,12 @@ def postSensor(request):
             sensor = sensor
             )
         scheduler_data.save()
-    return redirect("/sensor/list/")
+    rabbitMq = ConnectionRabbitMQ()
+    channel = rabbitMq.channel()
 
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id }), "new_sensor")
+    return redirect("/sensor/list/")
+ 
 @api_view(['DELETE'])
 def deleteSensor(request, id):
     Sensor.objects.filter(id=id).delete()

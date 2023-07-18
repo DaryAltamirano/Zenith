@@ -31,8 +31,6 @@ class ConnectionRabbitMQ:
         
         channel.basic_consume(queue=queue, on_message_callback=callback, auto_ack=True)
         
-        print(' [*] Waiting for messages. To exit press CTRL+C')
-
         channel.start_consuming()
 
     def basicPublish(self, channel, body, queue = None): 
@@ -41,5 +39,4 @@ class ConnectionRabbitMQ:
 
         channel.basic_publish(exchange='', routing_key=queue, body=body)
         
-        print(" [x] Sent 'cambio!'")
         channel.connection.close()

@@ -64,7 +64,7 @@ def updateSensor(request, id):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
 
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id }), "update_sensor")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action" : "update_sensor" }), "scheduler_cron_jobs")
     return redirect("/sensor/list/")
 
 @api_view(['POST'])
@@ -108,11 +108,14 @@ def postSensor(request):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
 
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id }), "new_sensor")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action" : "new_sensor" }), "scheduler_cron_jobs")
     return redirect("/sensor/list/")
  
 @api_view(['DELETE'])
 def deleteSensor(request, id):
     Sensor.objects.filter(id=id).delete()
+    rabbitMq = ConnectionRabbitMQ()
+    channel = rabbitMq.channel()
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action" : "delete_sensor" }), "scheduler_cron_jobs")
     return JsonResponse({"status":"ok"})
 

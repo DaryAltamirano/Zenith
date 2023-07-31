@@ -1,156 +1,246 @@
 {% extends "index.html" %}
 
 {% block body %}
-<div>
-    <h2 class="text-center">Create new sensor</h2>
+    <div>
+        <h2 class="text-center">Create new sensor</h2>
 
-</div>
-<div class="margin-table-x margin-table-y">
+    </div>
+    <div class="margin-table-x margin-table-y">
 
-    <div class="d-flex flex-row-reverse ">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                class="fa fa-plus-square" aria-hidden="true"></i> | Zone
-        </button>
-    </div>
-</div>
-<form id="sensorForm" method="post" action="{% url 'postSensor' %}"
-    class="margin-table-x row g-3 justify-content-around">
-    {% csrf_token %}
-    <div class="col-md-6">
-        <label for="name" class="form-label">Name</label>
-        <input required type="text" name="name" class="form-control" id="name">
-    </div>
-    <div class="col-md-3">
-        <label for="inputState" class="form-label">Zone</label>
-        <select required id="inputState" name="zone" class="form-select">
-            {% for zone in zones %}
-            <option value={{ zone.id }}>{{ zone.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-
-    <div class="col-md-6">
-        <label for="serial_uuid" class="form-label">Serial</label>
-        <input required type="text" name="serial" class="form-control" id="serial_uuid">
-    </div>
-    <div class="col-md-3">
-        <label for="protocolState" class="form-label">Protocol</label>
-        <select id="protocolState" name="protocol" class="form-select">
-            <option selected>HTTP</option>
-            <option>MQTT</option>
-        </select>
-    </div>
-
-    <div id="protocol_http">
-        <div class="d-flex justify-content-center">
-            <div class="col-md-10">
-                <label for="uri" class="form-label">uri</label>
-                <input required type="text" name="uri" class="form-control" id="uri">
-            </div>
-        </div>
-        <div class="d-flex justify-content-evenly">
-            <div class="col-md-5">
-                <label for="measure" class="form-label">measure</label>
-                <select id="measure" name="measure" class="form-select">
-                    {% for measure in measures %}
-                    <option>{{ measure }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-5">
-                <label for="number" class="form-label">Number</label>
-                <input type="number" name="number" class="form-control" id="number">
-            </div>
-        </div>
-        <div class="d-flex justify-content-evenly m-1">
-            <div class="mb-1">
-                <label for="body_params" class="form-label">Params: </label>
-                <textarea class="form-control" name="body_params" id="body_params" cols=50 rows=10></textarea>
-            </div>
-            <div class="mb-1">
-                <label for="body_headers" class="form-label">Headers</label>
-                <textarea class="form-control" name="body_headers" id="body_headers" cols=50 rows=10></textarea>
-            </div>
+        <div class="d-flex flex-row-reverse ">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                    class="fa fa-plus-square" aria-hidden="true"></i> | Zone
+            </button>
         </div>
     </div>
-    <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
-        <div class="col-md-1">
-            <label for="numberasas" class="form-label">Number</label>
-            <input type="number" name="numberasas" class="form-control" id="numberasas">
+    <form id="sensorForm" method="post" action="{% url 'postSensor' %}"
+          class="margin-table-x row g-3 justify-content-around">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input required type="text" name="name" class="form-control" id="name">
         </div>
-    </div>
-    <div class="mb-1">
-        <label for="body_request" class="form-label">Body Request</label>
-        <textarea class="form-control" name="body_request" id="body_request" cols=50 rows=10></textarea>
-    </div>
-    <div class="col-md-12 d-flex flex-row-reverse">
-        <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1" />
-        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+        <div class="col-md-3">
+            <label for="inputState" class="form-label">Zone</label>
+            <select required id="inputState" name="zone" class="form-select">
+                {% for zone in zones %}
+                    <option value={{ zone.id }}>{{ zone.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
 
-    </div>
-</form>
+        <div class="col-md-6">
+            <label for="serial_uuid" class="form-label">Serial</label>
+            <input required type="text" name="serial" class="form-control" id="serial_uuid">
+        </div>
+        <div class="col-md-3">
+            <label for="protocolState" class="form-label">Protocol</label>
+            <select id="protocolState" name="protocol" class="form-select">
+                <option selected>HTTP</option>
+                <option>MQTT</option>
+            </select>
+        </div>
 
-
-{# MODAL #}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">New zone</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div id="protocol_http">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10">
+                    <label for="uri" class="form-label">Uri</label>
+                    <input required type="text" name="uri" class="form-control" id="uri">
+                </div>
             </div>
-            <form id="zoneForm" method="post" action="{% url 'postZone' %}">
-                {% csrf_token %}
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Name:</label>
-                        <input required type="text" name="name" class="form-control" id="recipient-name">
+            <div class="d-flex justify-content-evenly">
+                <div class="col-md-5">
+                    <label for="measure" class="form-label">Measure</label>
+                    <select id="measure" name="measure" class="form-select">
+                        {% for measure in measures %}
+                            <option>{{ measure }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="number" class="form-label">Number</label>
+                    <input type="number" name="number" class="form-control" id="number">
+                </div>
+            </div>
+            <div class="d-flex justify-content-evenly ">
+                <div class="col-md-5">
+                    <span> Params:</span>
+                    <div id="inputParams">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="baseParamKey" class="form-control" placeholder="Key">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="baseParamValue" class="form-control" placeholder="Value">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="AddInputParams" class="btn btn-primary mt-2">More Params</button>
+                </div>
+
+                <div class="col-md-5">
+
+                    <span> Hedaer:</span>
+                    <div id="inputHeaders">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" name="baseHeaderKey" class="form-control" placeholder="Key">
+                            </div>
+                            <div class="col">
+                                <input type="text" name="baseHeaderValue" class="form-control" placeholder="Value">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" id="AddInputHeader" class="btn btn-primary mt-2">More Headers</button>
+                </div>
+            </div>
+        </div>
+        <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
+            <div class="col-md-1">
+                <label for="numberasas" class="form-label">Number</label>
+                <input type="number" name="numberasas" class="form-control" id="numberasas">
+            </div>
+        </div>
+
+        <div class="col-md-5">
+
+            <span> Body:</span>
+            <div id="inputBody">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" name="baseBodyKey" class="form-control" placeholder="Key">
+                    </div>
+                    <div class="col">
+                        <input type="text" name="baseBodyValue" class="form-control" placeholder="Value">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input required type="submit" value="Save" id="submitZoneForm" class="btn btn-primary" />
-                </div>
-            </form>
+            </div>
+            <button type="button" id="AddInputBody" class="btn btn-primary mt-2">More Body</button>
+        </div>
+        <div class="col-md-12 d-flex flex-row-reverse">
+            <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1"/>
+            <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
 
         </div>
+    </form>
+
+
+    {# MODAL #}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New zone</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="zoneForm" method="post" action="{% url 'postZone' %}">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input required type="text" name="name" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input required type="submit" value="Save" id="submitZoneForm" class="btn btn-primary"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </div>
-</div>
 
 
-<script>
-    let selectProtocol = document.getElementById("protocolState")
-    let textAreaForm = document.getElementById("body_request")
+    <script>
+        let selectProtocol = document.getElementById("protocolState")
 
-    textAreaForm.addEventListener('change', jsonPretty)
-    //  var myJsObj = {'id': 'dd85475c-a5ef-4a15-b00f-206e408528b2', 'info.aqi': {'ts': '2023-07-10T01:27:29Z', 'data': {'humidity': 68.16, 'pm10': 16, 'pm25': 15, 'rco2 (ppm)': 1598, 'temp': 28.68}}};
+        document.getElementById("AddInputParams").addEventListener("click", function () {
+            var inputContainer = document.getElementById("inputParams");
 
-    // using JSON.stringify pretty print capability:
-    //var str = JSON.stringify(myJsObj, undefined, 4);
+            // Crea un nuevo div para los dos nuevos inputs
+            var newInputsDiv = document.createElement("div");
+            newInputsDiv.className = "row"
 
-    // display pretty printed object in text area:
-    //document.getElementById('body_request').innerHTML = str;
-    //console.log(textAreaForm.value)
-    selectProtocol.addEventListener('change', function (e) {
-        let select = e.currentTarget.value
+            // Añade los inputs al nuevo div
+            newInputsDiv.innerHTML = `
+                <div class="col mt-1">
+                    <input type="text" name="baseParamKey" class="form-control" placeholder="key">
+                </div>
+                <div class="col mt-1">
+                    <input type="text" name="baseParamValue" class="form-control" placeholder="value">
+                </div>
 
-        if (select === "HTTP") {
-            document.getElementById("protocol_http").classList.remove("d-none")
-            document.getElementById("protocol_http").required = true;
-            document.getElementById("protocol_mqtt").classList.add("d-none")
+            `;
 
-        } else if (select === "MQTT") {
-            document.getElementById("protocol_mqtt").classList.remove("d-none")
-            document.getElementById("protocol_mqtt").required = true;
-            document.getElementById("protocol_http").classList.add("d-none")
+            // Agrega el nuevo div con los inputs al contenedor
+            inputContainer.appendChild(newInputsDiv);
+        });
+
+        document.getElementById("AddInputHeader").addEventListener("click", function () {
+            var inputContainer = document.getElementById("inputHeaders");
+
+            // Crea un nuevo div para los dos nuevos inputs
+            var newInputsDiv = document.createElement("div");
+            newInputsDiv.className = "row"
+
+            // Añade los inputs al nuevo div
+            newInputsDiv.innerHTML = `
+                <div class="col mt-1">
+                    <input type="text" name="baseHeaderKey" class="form-control" placeholder="key">
+                </div>
+                <div class="col mt-1">
+                    <input type="text" name="baseHeaderValue" class="form-control" placeholder="value">
+                </div>
+
+            `;
+
+            // Agrega el nuevo div con los inputs al contenedor
+            inputContainer.appendChild(newInputsDiv);
+        });
+
+                document.getElementById("AddInputBody").addEventListener("click", function () {
+            var inputContainer = document.getElementById("inputBody");
+
+            // Crea un nuevo div para los dos nuevos inputs
+            var newInputsDiv = document.createElement("div");
+            newInputsDiv.className = "row"
+
+            // Añade los inputs al nuevo div
+            newInputsDiv.innerHTML = `
+                <div class="col mt-1">
+                    <input type="text" name="baseBodyKey" class="form-control" placeholder="key">
+                </div>
+                <div class="col mt-1">
+                    <input type="text" name="baseBodyValue" class="form-control" placeholder="value">
+                </div>
+
+            `;
+
+            // Agrega el nuevo div con los inputs al contenedor
+            inputContainer.appendChild(newInputsDiv);
+        });
+
+        selectProtocol.addEventListener('change', function (e) {
+            let select = e.currentTarget.value
+
+            if (select === "HTTP") {
+                document.getElementById("protocol_http").classList.remove("d-none")
+                document.getElementById("protocol_http").required = true;
+                document.getElementById("protocol_mqtt").classList.add("d-none")
+
+            } else if (select === "MQTT") {
+                document.getElementById("protocol_mqtt").classList.remove("d-none")
+                document.getElementById("protocol_mqtt").required = true;
+                document.getElementById("protocol_http").classList.add("d-none")
+            }
+
+        });
+
+        function jsonPretty(e) {
+            console.log(e.value)
         }
 
-    });
 
-    function jsonPretty(e) {
-        console.log(e.value)
-    }
-
-
-</script>
+    </script>
 {% endblock %}

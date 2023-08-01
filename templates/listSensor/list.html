@@ -1,57 +1,72 @@
 {% extends "index.html" %}
 
+{% block title %} Dashboard {% endblock %} 
+
 {% block body %}
-<div class="margin-table-x margin-table-y">
-    <div class="d-flex flex-row-reverse">
-        <a href="{% url 'formSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
-                aria-hidden="true"></i> | Añadir
-        </a>
-    </div>
+<div class="row">
+    <div class="col-md-12">
 
-    {% for sensor in sensors %}
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Listado de Sensores Registrados</h4>
+                <!-- <p class="card-category"></p> -->
+            </div>
+<!-- 
+            <div class="d-flex flex-row-reverse">
+                <a href="{% url 'formSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
+                        aria-hidden="true"></i> | Añadir
+                </a>
+            </div> -->
 
-    {% endfor %}
+            {% for sensor in sensors %}
+
+            {% endfor %}
 
 
-    <div class="my-3">
-        {% csrf_token %}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Sector</th>
-                    <th scope="col">Metodo</th>
-                    <th class="text-center" scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for sensor in sensors %}
-                <tr>
-                    <th scope="row">{{ sensor.id }}</th>
-                    <td>{{ sensor.name }}</td>
-                    <td>{{ sensor.zone.name }}</td>
-                    <td>{{ sensor.protocol }}</td>
-                    <td class="text-center">
-                        <button type="button" class="btn btn-warning" onclick=updateSensor({{ sensor.id }})>
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" onclick=deleteSensor({{ sensor.id }})>
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        </button>
-                    </td>
-                </tr>
-                {% endfor %}
+            <div class="card-body">
+                <div class="table-responsive">
+                    {% csrf_token %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Sector</th>
+                                <th scope="col">Metodo</th>
+                                <th class="text-center" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sensor in sensors %}
+                            <tr>
+                                <th scope="row">{{ sensor.id }}</th>
+                                <td>{{ sensor.name }}</td>
+                                <td>{{ sensor.zone.name }}</td>
+                                <td>{{ sensor.protocol }}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning" onclick=updateSensor({{ sensor.id }})>
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" onclick=deleteSensor({{ sensor.id }})>
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
 
-            </tbody>
-        </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <script>
 
     var BASE_URL = "{{ request.scheme }}://{{ request.get_host }}";
     function updateSensor(id) {
-        window.location.href =  BASE_URL + "/sensor/updateFormSensor/" + id;
+        window.location.href = BASE_URL + "/sensor/updateFormSensor/" + id;
     }
 
     function deleteSensor(id) {

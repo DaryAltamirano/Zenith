@@ -26,7 +26,7 @@
                 <form id="sensorForm" method="post" action="{% url 'postSensor' %}"
                     class="margin-table-x row g-3 justify-content-around">
                     {% csrf_token %}
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <label for="name" class="form-label">Name</label>
                         <input required type="text" name="name" class="form-control" id="name">
                     </div>
@@ -39,7 +39,7 @@
                         </select>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-9">
                         <label for="serial_uuid" class="form-label">Serial</label>
                         <input required type="text" name="serial" class="form-control" id="serial_uuid">
                     </div>
@@ -52,14 +52,13 @@
                     </div>
 
                     <div id="protocol_http">
-                        <div class="d-flex justify-content-center">
-                            <div class="col-md-10">
-                                <label for="uri" class="form-label">Uri</label>
+
+                        <div class="col-md-12">
+                                <label for="uri" class="form-label">Url</label>
                                 <input required type="text" name="uri" class="form-control" id="uri">
-                            </div>
                         </div>
                         <div class="d-flex justify-content-evenly">
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <label for="measure" class="form-label">Measure</label>
                                 <select id="measure" name="measure" class="form-select">
                                     {% for measure in measures %}
@@ -67,13 +66,13 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <label for="number" class="form-label">Number</label>
                                 <input type="number" name="number" class="form-control" id="number">
                             </div>
                         </div>
                         <div class="d-flex justify-content-evenly ">
-                            <div class="col-md-5">
+                            <div class="col-md-10">
                                 <span> Params:</span>
                                 <div id="inputParams">
                                     <div class="row">
@@ -112,23 +111,28 @@
                         </div>
                     </div>
                     <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
-                        <div class="col-md-1">
-                            <label for="numberasas" class="form-label">Number</label>
-                            <input type="number" name="numberasas" class="form-control" id="numberasas">
-                        </div>
+
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-12">
 
                         <span> Body:</span>
                         <div id="inputBody">
                             <div class="row">
-                                <div class="col">
+                                <div class="col-md-4">
                                     <input type="text" name="baseBodyKey" class="form-control" placeholder="Key">
                                 </div>
-                                <div class="col">
+                                <div class="col-md-4">
                                     <input type="text" name="baseBodyValue" class="form-control" placeholder="Value">
                                 </div>
+                                 <div class="col-md-4">
+                                <label for="measure" class="form-label">Formato Haystack</label>
+                                <select id="measure" name="measure" class="form-select">
+                                    {% for measure in measures %}
+                                    <option>{{ measure }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
                             </div>
                         </div>
                         <button type="button" id="AddInputBody" class="btn btn-primary mt-2">More Body</button>

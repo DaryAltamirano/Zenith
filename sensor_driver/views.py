@@ -86,7 +86,16 @@ def postSensor(request):
     data = request.data
     print(data)
 
-    body_dict = json.dumps({key: value for key, value in zip(data.get('baseBodyKey'), data.get('baseBodyValue'))})
+    body_list = []
+
+    for key, value, categoryvalue in zip(data.getlist('baseBodyKey'), data.getlist('baseBodyValue'), data.getlist('baseCategoryValue')):
+        body_dict = {
+            key: value,
+            "category": categoryvalue
+        }
+        body_list.append(body_dict)
+    
+    body_json = json.dumps(body_list)
 
     zone = Zone.objects.get(id=data.get('zone'))
 
@@ -94,7 +103,7 @@ def postSensor(request):
         name=data.get('name'),
         series=data.get('serial'),
         protocol=data.get('protocol'),
-        format=body_dict,
+        format=body_json,
         zone=zone
     )
     sensor.save()

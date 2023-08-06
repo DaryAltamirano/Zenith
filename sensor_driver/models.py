@@ -14,18 +14,6 @@ class HaystackTag(models.Model):
     id = models.CharField(primary_key=True, max_length=50 ,unique=True) 
     name = models.CharField(max_length=500)
 
-    @classmethod
-    def import_from_csv(cls, file_path):
-        with open(file_path, 'r') as csvfile:
-            reader = csv.reader(csvfile, delimiter=',')
-            for row in reader:
-                id_value = row[0]
-                name_value = row[1]
-                try:
-                    cls.objects.create(id=id_value, name=name_value)
-                except ValidationError as e:
-                    pass
-
 class Sensor(models.Model):
     class Protocol(models.TextChoices):
         HTTP = 'HTTP'
@@ -58,9 +46,3 @@ class Request(models.Model):
     headers = JSONField(null= True)
     params = JSONField(null= True)
     sensor = models.OneToOneField(Sensor, on_delete=models.CASCADE)
-
-
-@receiver(post_migrate)
-def import_tags(sender, **kwargs):
-    if sender.name == 'Zenith': 
-        HaystackTag.import_from_csv('/datos-haystack.csv')  

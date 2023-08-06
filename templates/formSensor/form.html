@@ -120,20 +120,18 @@
                         <span> Body:</span>
                         <div id="inputBody">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <input type="text" name="baseBodyKey" class="form-control" placeholder="Key">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <input type="text" name="baseBodyValue" class="form-control" placeholder="Value">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 d-flex">
                                     <label for="tags" class="form-label">Estandar Haystack</label>
-                                    <select required id="tags" name="tags" class="form-select">
+                                    <select required id="tags" name="baseCategoryValue" class="form-select">
                                         {% for tag in tags %}
-                                        <option value={{ tag.id }}>{{ tag.id }}</option>
+                                        <option name="baseCategoryValue" value={{ tag.id }}>{{ tag.id }}</option>
                                         {% endfor %}
-                                    </select>
-
                                     </select>
                                 </div>
                             </div>
@@ -240,13 +238,20 @@
 
         // Añade los inputs al nuevo div
         newInputsDiv.innerHTML = `
-                <div class="col mt-1">
+                <div class="col-md-4">
                     <input type="text" name="baseBodyKey" class="form-control" placeholder="key">
                 </div>
-                <div class="col mt-1">
+                <div class="col-md-4">
                     <input type="text" name="baseBodyValue" class="form-control" placeholder="value">
                 </div>
-
+                <div class="col-md-4 d-flex" >
+                    <label for="tags" class="form-label">Estandar Haystack</label>
+                    <select required id="tags" name="baseCategoryValue" class="form-select">
+                        {% for tag in tags %}
+                        <option name="baseCategoryValue" value={{ tag.id }}>{{ tag.id }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             `;
 
         // Agrega el nuevo div con los inputs al contenedor

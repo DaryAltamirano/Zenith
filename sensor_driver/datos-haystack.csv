@@ -1,0 +1,74 @@
+air-velocity,Rate of air movement as distance over time
+apparent-energy,Integral of apparent-power over time
+apparent-power,Apparent power is perceived magnitude of power due to the combination of active and reactive power
+cloudage,Percentage of sky obscured by clouds
+concentration,Abundance of substance in the total volume of a mixture
+airQuality,Concentration of contaminants in the air
+ch2o-concentration,Concentration of formaldehyde (CH₂O) in the air
+co-concentration,Concentration of carbon monoxide (CO) in the air
+co2-concentration,Concentration of carbon dioxide (CO₂) in the air
+nh3-concentration,Concentration of ammonia (NH₃) in the air
+no2-concentration,Concentration of nitrogen dioxide (NO₂) in the air
+o3-concentration,Concentration of ozone (O₃) in the air
+pm01-concentration,Concentration of particulate matter 0.1 in the air
+pm10-concentration,Concentration of particulate matter 10 in the air
+pm25-concentration,Concentration of particulate matter 2.5 in the air
+tvoc-concentration,Concentration of total volatile organic compounds (TVOC) in the air
+current-angle,AC current phase angle
+current-imbalance,Current phase imbalance in a multiphase AC system
+current-thd,Total harmonic current distortion
+daytime,Time between sunrise and sunset
+dewPoint,Dew point temperature at which water vapor will form dew
+direction,Compass direction measured in degrees
+wind-direction,Compass direction from which wind originates
+elec-current,Electrical current
+current-magnitude,Magnitude of electrical current
+elec-volt,"Electrical voltage, potential difference"
+volt-magnitude,Magnitude of electrical voltage
+emission,Amount of a substance discharged into the air
+ch4-emission,Greenhouse gas emission of methane (CH₄) into the air
+co2-emission,Greenhouse gas emission of carbon dioxide (CO₂) into the air
+hfc-emission,Greenhouse gas emission of hydrofluorocarbons into the air
+n2o-emission,Greenhouse gas emission of nitrous oxide (N₂O) into the air
+nf3-emission,Greenhouse gas emission of nitrogen trifluoride (NF₃) into the air
+pfc-emission,Greenhouse gas emission of perfluorocarbons into the air
+sf6-emission,Greenhouse gas emission of sulphur hexafluoride (SF₆) into the air
+energy,Measure of ability to do work
+elec-energy,Electrical energy consumed
+active-energy,Integral of active-power over time
+enthalpy,Total heat content of a system
+feelsLike,"Apparent temperature perceived when considering humidity, wind chill, and heat index"
+flow,Measure of volumetric flow of fluid
+freq,Occurrences per unit time
+ac-freq,Frequency of alternating current
+humidity,Percent relative humidity
+illuminance,Luminous flux hitting the inside of the sphere at a specific point
+irradiance,Energy received at a surface by area
+solar-irradiance,Energy received on surface of the earth from the sun
+level,Range from 0% to 100%
+light-level,Sensed or controlled dimming level of electrical lighting
+luminance,Energy of light in a given direction
+luminous-flux,Total perceived light in all directions
+luminous-intensity,Perceived light in a particular direction per unit solid angle
+pf,Electrical power factor
+power,Energy consumed per unit time
+elec-power,Electrical energy consumed per unit time
+active-power,Active power or real power
+elec-demand,Active power averaged over a rolling interval
+precipitation,"Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail"
+pressure,Measure of force applied
+atmospheric-pressure,Barometric pressure exerted by the weight of the atmosphere
+reactive-energy,Integral of reactive-power over time
+reactive-power,Reactive power or imaginary power
+speed,Distance per unit time
+wind-speed,Wind flow speed
+temp,Temperature - measure of hot and cold
+air-temp,Dry bulb temperature
+vfd-freq,"VFD frequency measured in ""Hz"""
+vfd-speed,"VFD speed measured in ""%"""
+visibility,Distance at which light can be clearly discerned
+volt-angle,AC voltage phase angle
+volt-imbalance,AC voltage phase imbalance
+volume,Three dimensional space occupied by a substance
+weatherCond,Enumeration of weather conditions
+wetBulb,Wet bulb air temperature

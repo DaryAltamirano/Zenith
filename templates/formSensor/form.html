@@ -11,12 +11,11 @@
 
             <div class="card-header card-header-primary">
                 <h4 class="card-title ">Crear Nuevo Sensor</h4>
-                    <!-- <p class="card-category"></p> -->
+                <!-- <p class="card-category"></p> -->
             </div>
 
             <div class="card-body">
-                <div class="margin-table-x margin-table-y">
-
+                <div class="col-md-12 justify-content-around">
                     <div class="d-flex flex-row-reverse ">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#exampleModal"><i class="fa fa-plus-square" aria-hidden="true"></i> | Zone
@@ -24,14 +23,14 @@
                     </div>
                 </div>
                 <form id="sensorForm" method="post" action="{% url 'postSensor' %}"
-                    class="margin-table-x row g-3 justify-content-around">
+                    class="row g-3 justify-content-around">
                     {% csrf_token %}
                     <div class="col-md-9">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Nombre</label>
                         <input required type="text" name="name" class="form-control" id="name">
                     </div>
                     <div class="col-md-3">
-                        <label for="inputState" class="form-label">Zone</label>
+                        <label for="inputState" class="form-label">Zona</label>
                         <select required id="inputState" name="zone" class="form-select">
                             {% for zone in zones %}
                             <option value={{ zone.id }}>{{ zone.name }}</option>
@@ -44,35 +43,37 @@
                         <input required type="text" name="serial" class="form-control" id="serial_uuid">
                     </div>
                     <div class="col-md-3">
-                        <label for="protocolState" class="form-label">Protocol</label>
+                        <label for="protocolState" class="form-label">Protocolo</label>
                         <select id="protocolState" name="protocol" class="form-select">
                             <option selected>HTTP</option>
                             <option>MQTT</option>
                         </select>
                     </div>
-
-                    <div id="protocol_http">
+                    
+                    <div id="protocol_http" style="padding: 0px;" >
 
                         <div class="col-md-12">
-                                <label for="uri" class="form-label">Url</label>
-                                <input required type="text" name="uri" class="form-control" id="uri">
+                            <label for="uri" class="form-label">Url</label>
+                            <input required type="text" name="uri" class="form-control" id="uri">
                         </div>
-                        <div class="d-flex justify-content-evenly">
+
+                        <div class="d-flex" style="padding-top: 10px;">
+                            
                             <div class="col-md-6">
-                                <label for="measure" class="form-label">Measure</label>
+                                <label for="number" class="form-label">Tiempo de espera</label>
+                                <input type="number" name="number" class="form-control" id="number">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="measure" class="form-label">Unidad</label>
                                 <select id="measure" name="measure" class="form-select">
                                     {% for measure in measures %}
                                     <option>{{ measure }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-6">
-                                <label for="number" class="form-label">Number</label>
-                                <input type="number" name="number" class="form-control" id="number">
-                            </div>
                         </div>
-                        <div class="d-flex justify-content-evenly ">
-                            <div class="col-md-10">
+                        <div class="d-flex" style="padding-top: 10px;">
+                            <div class="col-md-6">
                                 <span> Params:</span>
                                 <div id="inputParams">
                                     <div class="row">
@@ -86,11 +87,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" id="AddInputParams" class="btn btn-primary mt-2">More
-                                    Params</button>
+                                <button type="button" id="AddInputParams" class="btn btn-primary mt-2">
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> | Params</button>
                             </div>
 
-                            <div class="col-md-5">
+                            <div class="col-md-6">
 
                                 <span> Header:</span>
                                 <div id="inputHeaders">
@@ -105,8 +106,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" id="AddInputHeader" class="btn btn-primary mt-2">More
-                                    Headers</button>
+                                <button type="button" id="AddInputHeader" class="btn btn-primary mt-2">
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> | Headers</button>
                             </div>
                         </div>
                     </div>
@@ -119,27 +120,30 @@
                         <span> Body:</span>
                         <div id="inputBody">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <input type="text" name="baseBodyKey" class="form-control" placeholder="Key">
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <input type="text" name="baseBodyValue" class="form-control" placeholder="Value">
                                 </div>
-                                 <div class="col-md-4">
-                                <label for="measure" class="form-label">Formato Haystack</label>
-                                <select id="measure" name="measure" class="form-select">
-                                    {% for measure in measures %}
-                                    <option>{{ measure }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
+                                <div class="col-md-6">
+                                    <label for="tags" class="form-label">Estandar Haystack</label>
+                                    <select required id="tags" name="tags" class="form-select">
+                                        {% for tag in tags %}
+                                        <option value={{ tag.id }}>{{ tag.id }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <button type="button" id="AddInputBody" class="btn btn-primary mt-2">More Body</button>
+                        <button type="button" id="AddInputBody" class="btn btn-primary mt-2">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> | Body</button>
                     </div>
                     <div class="col-md-12 d-flex flex-row-reverse">
-                        <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1" />
-                        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Atras</a>
 
                     </div>
                 </form>
@@ -151,7 +155,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">New zone</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Zona</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -159,15 +163,15 @@
                                 {% csrf_token %}
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Name:</label>
+                                        <label for="recipient-name" class="col-form-label">Nombre:</label>
                                         <input required type="text" name="name" class="form-control"
                                             id="recipient-name">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <input required type="submit" value="Save" id="submitZoneForm"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <input required type="submit" value="Guardar" id="submitZoneForm"
                                         class="btn btn-primary" />
                                 </div>
                             </form>

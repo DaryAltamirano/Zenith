@@ -12,37 +12,43 @@
             </div>
             <div class="card-body">
                 <form id="sensorForm" method="POST" action="{% url 'updateSensor' id=sensor.id %}"
-                    class="margin-table-x row g-3 justify-content-around">
+                    class="row g-3 justify-content-around">
                     {% csrf_token %}
-                    <div class="col-md-6">
-                        <label for="name" class="form-label">Name</label>
+                    <div class="col-md-4">
+                        <label for="name" class="form-label">Nombre</label>
                         <input required type="text" name="name" class="form-control" id="name"
                             value="{{ sensor.name }}">
                     </div>
-                    <div class="col-md-3">
-                        <label for="inputState" class="form-label">Zone</label>
+                    <div class="col-md-4">
+                        <label for="serial_uuid" class="form-label">Serial</label>
+                        <input required type="text" name="serial" class="form-control" id="serial_uuid"
+                            value="{{ sensor.series }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">Zona</label>
                         <select required id="inputState" name="zone" class="form-select">
                             <option selected value={{ zone.id }}>{{ zone.name }}</option>
                         </select>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="serial_uuid" class="form-label">Serial</label>
-                        <input required type="text" name="serial" class="form-control" id="serial_uuid"
-                            value="{{ sensor.series }}">
-                    </div>
+                    
 
-                    <div id="protocol_http">
+                    <div id="protocol_http" style="padding: 0px;">
                         <div class="d-flex justify-content-center">
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <label for="uri" class="form-label">uri</label>
                                 <input required type="text" name="uri" class="form-control" id="uri"
                                     value="{{ scheduler.uri }}">
                             </div>
                         </div>
-                        <div class="d-flex justify-content-evenly">
-                            <div class="col-md-5">
-                                <label for="measure" class="form-label">measure</label>
+                        <div class="d-flex justify-content-evenly" style="padding-top: 10px;">
+                            <div class="col-md-6">
+                                <label for="number" class="form-label">TIempo de Espera</label>
+                                <input required type="number" name="number" class="form-control" id="number" value={{
+                                    scheduler.timeline }}>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="measure" class="form-label">Unidad</label>
                                 <select required id="measure" name="measure" class="form-select">
                                     <option selected>{{ scheduler.measure }}</option>
                                     {% for measure in measures %}
@@ -50,19 +56,14 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-5">
-                                <label for="number" class="form-label">Number</label>
-                                <input required type="number" name="number" class="form-control" id="number" value={{
-                                    scheduler.timeline }}>
-                            </div>
                         </div>
-                        <div class="d-flex justify-content-evenly m-1">
-                            <div class="mb-1">
+                        <div class="d-flex justify-content-evenly" style="padding-top: 10px;">
+                            <div class="col-md-6">
                                 <label for="body_params" class="form-label">Params: </label>
                                 <textarea required class="form-control" name="body_params" id="body_params" cols=50
                                     rows=10>{{ request_data.params }}</textarea>
                             </div>
-                            <div class="mb-1">
+                            <div class="col-md-6">
                                 <label for="body_headers" class="form-label">Headers</label>
                                 <textarea required class="form-control" name="body_headers" id="body_headers" cols=50
                                     rows=10>{{ request_data.headers }}</textarea>
@@ -75,8 +76,8 @@
                             rows=10>{{ sensor.format }}</textarea>
                     </div>
                     <div class="col-md-12 d-flex flex-row-reverse">
-                        <input required type="submit" value="Save" id="submitSensorForm" class="btn btn-primary mx-1" />
-                        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Back</a>
+                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Atras</a>
                     </div>
                 </form>
 

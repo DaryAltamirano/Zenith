@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from sensor_driver.management.commands.supports.ConnectionRabbitMQ import ConnectionRabbitMQ
-from sensor_driver.models import Sensor, Zone, Request as Request_Model, Scheduler
+from sensor_driver.models import HaystackTag, Sensor, Zone, Request as Request_Model, Scheduler
 from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -15,9 +15,10 @@ def listSensor(request):
 
 def formSensor(request):
     protocols = ["HTTP", "MQTT"]
+    tags = HaystackTag.objects.all()
     measures = ["SECONDS", "MINUTES", "HOURS"]
     zones = Zone.objects.all()
-    return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "measures": measures})
+    return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "measures": measures, "tags": tags})
 
 
 def updateFormSensor(request, id):

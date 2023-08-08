@@ -1,8 +1,9 @@
 # Use include() to add paths from the catalog application
 from django.urls import path
-from sensor_driver.views import updateFormSensor, listSensor, formSensor, postSensor, postZone, deleteSensor, updateSensor
+from django.contrib.auth import views as auth_views
+from sensor_driver.views import updateFormSensor, login_required,listSensor, formSensor, postSensor, postZone, deleteSensor, updateSensor
 urlpatterns = [
-    path('list/', listSensor, name="listSensor"),
+    path('list/',  login_required(listSensor), name="listSensor"),
     path('form/', formSensor, name="formSensor"),
     path('postSensor/', postSensor, name="postSensor"),
     path('deleteSensor/<int:id>', deleteSensor, name="deleteSensor"),

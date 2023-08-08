@@ -1,5 +1,7 @@
 import json
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 from django.http import JsonResponse
 from sensor_driver.management.commands.supports.ConnectionRabbitMQ import ConnectionRabbitMQ
 from sensor_driver.models import HaystackTag, Sensor, Zone, Request as Request_Model, Scheduler
@@ -8,11 +10,12 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 
 
+@login_required(login_url="/login/")
 def listSensor(request):
     sensors = Sensor.objects.all()
     return render(request, 'listSensor/list.html', {"sensors": sensors})
 
-
+@login_required(login_url="/login/")
 def formSensor(request):
     protocols = ["HTTP", "MQTT"]
     tags = HaystackTag.objects.all()
@@ -20,7 +23,7 @@ def formSensor(request):
     zones = Zone.objects.all()
     return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "measures": measures, "tags": tags})
 
-
+@login_required(login_url="/login/")
 def updateFormSensor(request, id):
     sensor = Sensor.objects.filter(id=id).get()
 
@@ -41,7 +44,7 @@ def updateFormSensor(request, id):
 
     return render(request, 'formSensor/updateSensor.html', data)
 
-
+@login_required(login_url="/login/")
 @api_view(['POST'])
 def updateSensor(request, id):
     data = request.data
@@ -72,7 +75,7 @@ def updateSensor(request, id):
                           "scheduler_cron_jobs")
     return redirect("/sensor/list/")
 
-
+@login_required(login_url="/login/")
 @api_view(['POST'])
 def postZone(request):
     data = request.data
@@ -80,7 +83,7 @@ def postZone(request):
     zone.save()
     return redirect("/sensor/form/")
 
-
+@login_required(login_url="/login/")
 @api_view(['POST'])
 def postSensor(request):
     data = request.data
@@ -132,7 +135,7 @@ def postSensor(request):
     rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action": "new_sensor"}), "scheduler_cron_jobs")
     return redirect("/sensor/list/")
 
-
+@login_required
 @api_view(['DELETE'])
 def deleteSensor(request, id):
     Sensor.objects.filter(id=id).delete()

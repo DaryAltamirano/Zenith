@@ -23,7 +23,17 @@ spec:
                 - containerPort: 8086
          volumes:
          - name: influxdb-data
-           hostPath:
-#             sudo mkdir /mnt/data/influxdb
-              path: /mnt/data/influxdb
-              type: Directory
+           persistentVolumeClaim:
+             claimName: influxdb-pvc  # Nombre del PVC que crearemos
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb-pvc
+  namespace: zenith-beta
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi  # Tamaño del almacenamiento solicitado

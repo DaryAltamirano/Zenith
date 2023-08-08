@@ -2,7 +2,7 @@ import json
 from django.shortcuts import render
 from django.http import JsonResponse
 from sensor_driver.management.commands.supports.ConnectionRabbitMQ import ConnectionRabbitMQ
-from sensor_driver.models import Sensor, Zone, Request as Request_Model, Scheduler
+from sensor_driver.models import HaystackTag, Sensor, Zone, Request as Request_Model, Scheduler
 from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -15,9 +15,10 @@ def listSensor(request):
 
 def formSensor(request):
     protocols = ["HTTP", "MQTT"]
+    tags = HaystackTag.objects.all()
     measures = ["SECONDS", "MINUTES", "HOURS"]
     zones = Zone.objects.all()
-    return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "measures": measures})
+    return render(request, 'formSensor/form.html', {'protocols': protocols, 'zones': zones, "measures": measures, "tags": tags})
 
 
 def updateFormSensor(request, id):
@@ -85,7 +86,16 @@ def postSensor(request):
     data = request.data
     print(data)
 
-    body_dict = json.dumps({key: value for key, value in zip(data.get('baseBodyKey'), data.get('baseBodyValue'))})
+    body_list = []
+
+    for key, value, categoryvalue in zip(data.getlist('baseBodyKey'), data.getlist('baseBodyValue'), data.getlist('baseCategoryValue')):
+        body_dict = {
+            key: value,
+            "category": categoryvalue
+        }
+        body_list.append(body_dict)
+    
+    body_json = json.dumps(body_list)
 
     zone = Zone.objects.get(id=data.get('zone'))
 
@@ -93,7 +103,7 @@ def postSensor(request):
         name=data.get('name'),
         series=data.get('serial'),
         protocol=data.get('protocol'),
-        format=body_dict,
+        format=body_json,
         zone=zone
     )
     sensor.save()

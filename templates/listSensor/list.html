@@ -31,7 +31,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
-                                <th scope="col">Sector</th>
+                                <th scope="col">Zona</th>
+                                <th scope="col">Serial</th>
                                 <th scope="col">Metodo</th>
                                 <th class="text-center" scope="col">Acciones</th>
                             </tr>
@@ -41,6 +42,7 @@
                             <tr>
                                 <th scope="row">{{ sensor.id }}</th>
                                 <td>{{ sensor.name }}</td>
+                                <td>{{ sensor.series }}</td>
                                 <td>{{ sensor.zone.name }}</td>
                                 <td>{{ sensor.protocol }}</td>
                                 <td class="text-center">

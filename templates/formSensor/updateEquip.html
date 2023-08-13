@@ -30,19 +30,17 @@
                         </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="space" class="form-label">Sitio</label>
-                        <select required id="space" name="space" class="form-select">
+                        <label for="space" class="form-label">Espacio </label>
+                        <select required name="space" id="space" class="form-select">
+                            <option></option>
                             {% for space in spaces %}
-                            <option value={{ space.id }}>{{ space.name }}</option>
+                            <option value="{{ space.id }}" data-zone-id="{{ space.zone.id }}" data-zone-name="{{ space.zone.name }}">{{ space.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="col-md-6">
                         <label for="zone" class="form-label">Sitio</label>
-                        <select required id="zone" name="zone" class="form-select">
-                            {% for zone in zones %}
-                            <option value={{ zone.id }}>{{ zone.name }}</option>
-                            {% endfor %}
+                        <select required id="zone" name="zone" class="form-select" disabled>
                         </select>
                     </div>
                     <div class="col-md-12 d-flex flex-row-reverse">
@@ -58,6 +56,21 @@
 </div>
 
 <script>
+    const spaceDropdown = document.getElementById('space');
+    const zoneDropdown = document.getElementById('zone');
 
+    spaceDropdown.addEventListener('change', function () {
+        const selectedOption = this.options[this.selectedIndex];
+        const zoneId = selectedOption.getAttribute('data-zone-id');
+        const zoneName = selectedOption.getAttribute('data-zone-name');
+
+        zoneDropdown.innerHTML = '';        
+        const newZoneOption = document.createElement('option');
+        
+        newZoneOption.value = zoneId;
+        newZoneOption.textContent = zoneName;
+        
+        zoneDropdown.appendChild(newZoneOption);
+    });
 </script>
 {% endblock %}

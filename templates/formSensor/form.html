@@ -29,7 +29,7 @@
                             <option></option>
                             {% for equip in equips %}
                             <option value="{{ equip.id }}" data-space="{{ equip.space.name }}"
-                                data-zone-id="{{ equip.zone.id }}" data-zone-name="{{ equip.zone.name }}">{{ equip.name }}</option>
+                                data-zone-id="{{ equip.space.zone.id }}" data-zone-name="{{ equip.space.zone.name }}">{{ equip.name }}</option>
                             {% endfor %}
                         </select>
                     </div>

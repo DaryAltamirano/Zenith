@@ -24,7 +24,6 @@ class Equip(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     equipref = models.CharField(max_length=50)
-    zone = models.ForeignKey(Zone, on_delete=models.DO_NOTHING)
     space = models.ForeignKey(Space, on_delete=models.DO_NOTHING)
 
 class HaystackTag(models.Model):
@@ -40,7 +39,6 @@ class Sensor(models.Model):
     format = JSONField()
     protocol = models.CharField(max_length=50)
     equip = models.ForeignKey(Equip, on_delete=models.DO_NOTHING)
-    zone = models.ForeignKey(Zone, on_delete=models.DO_NOTHING)
     created_at = models.DateField('Fecha de creacion', auto_now=True, auto_created=True)
 
 class Scheduler(models.Model):

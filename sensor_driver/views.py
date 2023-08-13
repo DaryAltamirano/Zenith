@@ -134,23 +134,27 @@ def updateSensor(request, id):
     data = request.data
 
     sensor = Sensor.objects.filter(id=id).get()
+    equip = Equip.objects.get(id=data.get('equip'))
 
     sensor.name = data.get('name')
     sensor.series = data.get('serial')
     sensor.format = data.get('body_request')
+    sensor.protocol = data.get('protocol')
+    sensor.equip = equip
     sensor.save()
 
-    scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+    if sensor.protocol == "coap":
+        scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+        scheduler.timeline = data.get('timeline')
+        scheduler.save()    
+    if sensor.protocol == "http":
+        scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+        scheduler.timeline = data.get('timeline')
+        scheduler.save()  
+    
     request_data = Request_Model.objects.filter(sensor_id=sensor.id).get()
-
-    request_data.headers = data.get('body_headers')
-    request_data.params = data.get('body_params')
+    request_data.connection = data.get('connection')
     request_data.save()
-
-    scheduler.uri = data.get('uri')
-    scheduler.measure = data.get('measure')
-    scheduler.timeline = data.get('number')
-    scheduler.save()
 
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
@@ -196,12 +200,10 @@ def updateEquip(request, id):
     data = request.data
 
     equip = Equip.objects.filter(id=id).get()
-    zone = Zone.objects.get(id=data.get('zone'))
     space = Space.objects.get(id=data.get('space'))
 
     equip.name = data.get('name')
     equip.equipref = data.get('equipref')
-    equip.zone = zone
     equip.space = space
     equip.save()
 
@@ -238,7 +240,6 @@ def postEquip(request):
     data = request.data
     space = Space.objects.get(id=data.get('space'))
     equip = Equip(name=data.get("name"), 
-                  zone=space.zone,
                   space=space,
                   equipref=data.get("equipref"))
     equip.save()
@@ -266,8 +267,7 @@ def postSensor(request):
         series=data.get('serial'),
         protocol=data.get('protocol'),
         format=body_json,
-        equip=equip,
-        zone=equip.zone
+        equip=equip
     )
     sensor.save()
 
@@ -303,8 +303,8 @@ def postSensor(request):
         scheduler_data.save()
 
     if data.get('protocol') == "http":
-        params_dict = {key: value for key, value in zip(data.get('baseParamKey'), data.get('baseParamValue'))}
-        headers_dict = {key: value for key, value in zip(data.get('baseHeaderKey'), data.get('baseHeaderValue'))}
+        params_dict = {key: value for key, value in zip(data.getlist('baseParamKey'), data.getlist('baseParamValue'))}
+        headers_dict = {key: value for key, value in zip(data.getlist('baseHeaderKey'), data.getlist('baseHeaderValue'))}
         time_list.append(data.get('minutehttp'))
         time_list.append('/' + str(data.get('horahttp')))
         timescheduler = ' '.join(map(str, time_list))

@@ -44,18 +44,23 @@
                             value="{{ sensor.series }}">
                     </div>
                     <div class="col-md-12" style="padding: 0px;">
-                    <div class="col-md-3">
-                        <label for="protocolState" class="form-label">Protocolo</label>
-                        <select required id="protocolState" name="protocol" class="form-select">
-                            <option value=""></option>
-                            {% for tag in tags %}
-                            {% if tag.category == "protocol" and tag.state == "A" %}
-                            <option value={{ tag.id }}>{{ tag.id }}</option>
-                            {% endif %}
-                            {% endfor %}
-                        </select>
+                        <div class="col-md-3">
+                            <label for="protocolState" class="form-label">Protocolo</label>
+                            <select required id="protocolState" name="protocol" class="form-select">
+                                <option value=""></option>
+                                {% for tag in tags %}
+                                {% if tag.category == "protocol" and tag.state == "A" %}
+                                <option value={{ tag.id }}>{{ tag.id }}</option>
+                                {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="timeline" class="form-label">Planificador</label>
+                            <input required type="text" name="timeline" class="form-control" id="timeline"
+                            value="{{ scheduler.timeline }}">
+                        </div>
                     </div>
-                </div>
                     <div class="col-md-6">
                         <label for="connection" class="form-label">Coneccion</label>
                         <textarea required class="form-control" name="connection" id="connection" cols=50
@@ -67,7 +72,8 @@
                             rows=10>{{ sensor.format }}</textarea>
                     </div>
                     <div class="col-md-12 d-flex flex-row-reverse">
-                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <input required type="submit" value="Guardar" id="submitSensorForm"
+                            class="btn btn-primary mx-1" />
                         <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Atras</a>
                     </div>
                 </form>

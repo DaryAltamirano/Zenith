@@ -77,11 +77,11 @@
                                 <div id="number">
                                     <div class="row">
                                         <div class="col">
-                                            <select id="hora" class="form-select">
+                                            <select id="horahttp" name="horahttp" class="form-select">
                                             </select>
                                         </div>
                                         <div class="col">
-                                            <select id="minute" class="form-select">
+                                            <select id="minutehttp" name="minutehttp" class="form-select">
                                             </select>
                                         </div>
                                     </div>
@@ -327,9 +327,7 @@
         const spaceName = selectedOption.getAttribute('data-space');
         const zoneId = selectedOption.getAttribute('data-zone-id');
         const zoneName = selectedOption.getAttribute('data-zone-name');
-
         spacenameTextbox.value = spaceName;
-
         zoneDropdown.innerHTML = '';
 
         const newZoneOption = document.createElement('option');
@@ -359,6 +357,26 @@
             });
         });
     });
+
+    function timeScheduler(comboBoxId, max) {
+    const cmbTimeConnection = document.getElementById(comboBoxId);
+    
+    const specialOption = document.createElement('option');
+    specialOption.value = '*';
+    specialOption.textContent = '*';
+    cmbTimeConnection.appendChild(specialOption);
+    
+    for (let i = 1; i <= max; i++) {
+        const option = document.createElement('option');
+        option.value = i.toString();
+        option.textContent = i.toString();
+        cmbTimeConnection.appendChild(option);
+    }
+    }
+    timeScheduler('minute', 60);
+    timeScheduler('hora', 24);
+    timeScheduler('minutehttp', 60);
+    timeScheduler('horahttp', 24);
 
 </script>
 {% endblock %}

@@ -86,14 +86,15 @@ def updateFormSensor(request, id):
         "tags": tags
     }
 
+    scheduler = ""
+    if sensor.protocol == "http":
+        scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
 
-    # if sensor.protocol == "HTTP":
-    #     scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
-    
     request_data = Request_Model.objects.filter(sensor_id=sensor.id).get()
 
     data.update({
-        "request_data": request_data
+        "request_data": request_data,
+        "scheduler":scheduler
     })
 
     return render(request, 'formSensor/updateSensor.html', data)
@@ -247,7 +248,9 @@ def postEquip(request):
 @api_view(['POST'])
 def postSensor(request):
     data = request.data
+    print(data)
     body_list = []
+    time_list = []
     for key, value, categoryvalue in zip(data.getlist('baseBodyKey'), data.getlist('baseBodyValue'), data.getlist('baseCategoryValue')):
         body_dict = {
             key: value,
@@ -284,13 +287,17 @@ def postSensor(request):
             "port": data.get('port')
         }
     if data.get('protocol') == "coap":
+        time_list.append(data.get('minute'))
+        time_list.append("/" + str(data.get('hora')))
+        timescheduler = ' '.join(map(str, time_list))
+        
         conecction_dict = {
             "uri": data.get('uri'),
-            "method": data.get('method'),
+            "method":  data.get('hora'),
             "port": data.get('port')
         }
         scheduler_data = Scheduler(
-            timeline=data.get('number'),
+            timeline=timescheduler,
             sensor=sensor
         )
         scheduler_data.save()
@@ -298,6 +305,9 @@ def postSensor(request):
     if data.get('protocol') == "http":
         params_dict = {key: value for key, value in zip(data.get('baseParamKey'), data.get('baseParamValue'))}
         headers_dict = {key: value for key, value in zip(data.get('baseHeaderKey'), data.get('baseHeaderValue'))}
+        time_list.append(data.get('minutehttp'))
+        time_list.append('/' + str(data.get('horahttp')))
+        timescheduler = ' '.join(map(str, time_list))
         conecction_dict = {
             "uri": data.get('uri'),
             "method": data.get('method'),
@@ -305,7 +315,7 @@ def postSensor(request):
             "headers": headers_dict
         }
         scheduler_data = Scheduler(
-            timeline=data.get('number'),
+            timeline=timescheduler,
             sensor=sensor
         )
         scheduler_data.save()
@@ -329,6 +339,12 @@ def postSensor(request):
 def deleteSensor(request, id):
     sensor = Sensor.objects.filter(id=id).get()
     Request_Model.objects.filter(sensor=sensor).delete()
+    
+    if sensor.protocol == "coap":
+        Scheduler.objects.filter(sensor=sensor).delete()
+    if sensor.protocol == "http":
+        Scheduler.objects.filter(sensor=sensor).delete()
+
     Sensor.objects.filter(id=id).delete()
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()

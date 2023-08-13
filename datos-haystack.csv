@@ -1,0 +1,564 @@
+bacnet,ASHRAE building automation and control protocol,protocol,I
+bluetooth,Short range wireless communication protocol,protocol,I
+coap,Constrained Application Protocol,protocol,A
+dali,Digital Addressable Lighting Interface protocol for lighting,protocol,I
+ftp,File Transfer Protocol,protocol,I
+haystack,Haystack HTTP protocol for exchanging tagged data,protocol,I
+http,Hypertext Transfer Protocol which is foundation of the web,protocol,A
+imap,Internet Message Access Protocol for retrieving email,protocol,I
+knx,KNX protocol commonly used for lighting systems,protocol,I
+modbus,Register based communication protocol used with industrial devices,protocol,A
+mqtt,Message Queuing Telemetry Transport publish/subscribe protocol,protocol,A
+obix,XML based Open Building Information eXchange protocol,protocol,I
+pop3,Post Office Protocol version 3 for retrieving email,protocol,I
+smtp,Simple Mail Transfer Protocol for sending email,protocol,I
+snmp,Simple Network Management Protocol for managing IP devices,protocol,I
+sox,Sedona Framework UDP based communication protocol,protocol,I
+zigbee,Low power wireless communication protocol for home automation,protocol,I
+zwave,Low power wireless communication protocol for home automation,protocol,I
+air-velocity,Rate of air movement as distance over time,quantity,A
+apparent-energy,Integral of apparent-power over time,quantity,A
+apparent-power,Apparent power is perceived magnitude of power due to the combination of active and reactive power,quantity,A
+cloudage,Percentage of sky obscured by clouds,quantity,A
+concentration,Abundance of substance in the total volume of a mixture,quantity,A
+airQuality,Concentration of contaminants in the air,quantity,A
+ch2o-concentration,Concentration of formaldehyde (CH₂O) in the air,quantity,A
+co-concentration,Concentration of carbon monoxide (CO) in the air,quantity,A
+co2-concentration,Concentration of carbon dioxide (CO₂) in the air,quantity,A
+nh3-concentration,Concentration of ammonia (NH₃) in the air,quantity,A
+no2-concentration,Concentration of nitrogen dioxide (NO₂) in the air,quantity,A
+o3-concentration,Concentration of ozone (O₃) in the air,quantity,A
+pm01-concentration,Concentration of particulate matter 0.1 in the air,quantity,A
+pm10-concentration,Concentration of particulate matter 10 in the air,quantity,A
+pm25-concentration,Concentration of particulate matter 2.5 in the air,quantity,A
+tvoc-concentration,Concentration of total volatile organic compounds (TVOC) in the air,quantity,A
+current-angle,AC current phase angle,quantity,A
+current-imbalance,Current phase imbalance in a multiphase AC system,quantity,A
+current-thd,Total harmonic current distortion,quantity,A
+daytime,Time between sunrise and sunset,quantity,A
+dewPoint,Dew point temperature at which water vapor will form dew,quantity,A
+direction,Compass direction measured in degrees,quantity,A
+wind-direction,Compass direction from which wind originates,quantity,A
+elec-current,Electrical current,quantity,A
+current-magnitude,Magnitude of electrical current,quantity,A
+elec-volt,"Electrical voltage, potential difference",quantity,A
+volt-magnitude,Magnitude of electrical voltage,quantity,A
+emission,Amount of a substance discharged into the air,quantity,A
+ch4-emission,Greenhouse gas emission of methane (CH₄) into the air,quantity,A
+co2-emission,Greenhouse gas emission of carbon dioxide (CO₂) into the air,quantity,A
+hfc-emission,Greenhouse gas emission of hydrofluorocarbons into the air,quantity,A
+n2o-emission,Greenhouse gas emission of nitrous oxide (N₂O) into the air,quantity,A
+nf3-emission,Greenhouse gas emission of nitrogen trifluoride (NF₃) into the air,quantity,A
+pfc-emission,Greenhouse gas emission of perfluorocarbons into the air,quantity,A
+sf6-emission,Greenhouse gas emission of sulphur hexafluoride (SF₆) into the air,quantity,A
+energy,Measure of ability to do work,quantity,A
+elec-energy,Electrical energy consumed,quantity,A
+active-energy,Integral of active-power over time,quantity,A
+enthalpy,Total heat content of a system,quantity,A
+feelsLike,"Apparent temperature perceived when considering humidity, wind chill, and heat index",quantity,A
+flow,Measure of volumetric flow of fluid,quantity,A
+freq,Occurrences per unit time,quantity,A
+ac-freq,Frequency of alternating current,quantity,A
+humidity,Percent relative humidity,quantity,A
+illuminance,Luminous flux hitting the inside of the sphere at a specific point,quantity,A
+irradiance,Energy received at a surface by area,quantity,A
+solar-irradiance,Energy received on surface of the earth from the sun,quantity,A
+level,Range from 0% to 100%,quantity,A
+light-level,Sensed or controlled dimming level of electrical lighting,quantity,A
+luminance,Energy of light in a given direction,quantity,A
+luminous-flux,Total perceived light in all directions,quantity,A
+luminous-intensity,Perceived light in a particular direction per unit solid angle,quantity,A
+pf,Electrical power factor,quantity,A
+power,Energy consumed per unit time,quantity,A
+elec-power,Electrical energy consumed per unit time,quantity,A
+active-power,Active power or real power,quantity,A
+elec-demand,Active power averaged over a rolling interval,quantity,A
+precipitation,"Amount of atmospheric water vapor fallen including rain, sleet, snow, and hail",quantity,A
+pressure,Measure of force applied,quantity,A
+atmospheric-pressure,Barometric pressure exerted by the weight of the atmosphere,quantity,A
+reactive-energy,Integral of reactive-power over time,quantity,A
+reactive-power,Reactive power or imaginary power,quantity,A
+speed,Distance per unit time,quantity,A
+wind-speed,Wind flow speed,quantity,A
+temp,Temperature - measure of hot and cold,quantity,A
+air-temp,Dry bulb temperature,quantity,A
+vfd-freq,"VFD frequency measured in ""Hz""",quantity,A
+vfd-speed,"VFD speed measured in ""%""",quantity,A
+visibility,Distance at which light can be clearly discerned,quantity,A
+volt-angle,AC voltage phase angle,quantity,A
+volt-imbalance,AC voltage phase imbalance,quantity,A
+volume,Three dimensional space occupied by a substance,quantity,A
+weatherCond,Enumeration of weather conditions,quantity,A
+wetBulb,Wet bulb air temperature,quantity,A
+dataCenter,Space used to house computer and networking gear,space,A
+floor,Storey of a building,space,A
+ground-floor,Floor at ground level,space,A
+roof-floor,The roof floor is the topmost level of a building,space,A
+subterranean-floor,Floor below ground level,space,A
+room,Enclosed room of a building,space,A
+zone-space,Space associated with a specific system,space,A
+hvac-zone-space,Zone related to conditioning of a space's air temperature and quality,space,A
+lighting-zone-space,Zone related to lighting system,space,A
+actuator,Equipment to move or control a mechanism,equip,A
+damper-actuator,Actuator to regulate the flow of air,equip,A
+valve-actuator,Actuator to regulate the flow of fluid,equip,A
+airHandlingEquip,HVAC equipment that conditions and delivers air via one or more fans,equip,A
+ahu,Air Handling Unit,equip,A
+doas,Dedicated Outside Air System,equip,A
+mau,Makeup Air Unit,equip,A
+rtu,Roof Top Unit,equip,A
+fcu,Fan Coil Unit,equip,A
+crac,Computer Room Air Conditioner,equip,A
+unitVent,Unit Ventilator,equip,A
+vrf-indoorUnit-fcu,Indoor unit fan coil unit in a VRF system,equip,A
+airTerminalUnit,Equipment in air distribution systems which terminate at the space,equip,A
+cav,Constant air volume terminal unit,equip,A
+vav,Variable air volume terminal unit,equip,A
+assembly,A collection of manufactured parts or subassemblies,equip,A
+ates,Aquifer Thermal Energy Storage system,equip,A
+battery,Equipment used to store electric energy,equip,A
+boiler,Equipment to generate hot water or steam for heating,equip,A
+hot-water-boiler,Boiler which outputs hot water,equip,A
+steam-boiler,Boiler which outputs steam,equip,A
+cable,An assembly of one or more insulated conductors,equip,A
+chiller,Equipment to remove heat from a liquid,equip,A
+circuit,Electrical circuit and its associated components such as breakers,equip,A
+conduit,"Duct, pipe, or cable to convey a substance or phenomenon",equip,A
+duct,Conduit used to convey air for HVAC,equip,A
+pipe,Conduit used to convey a fluid,equip,A
+wire,Cabling used to convey electricity or data,equip,A
+coolingTower,Equipment to transfer waste heat into the atmosphere,equip,A
+evse-equip,Equipment that supports the delivery of electricity to charging inlets located on EVs,equip,A
+evse-assembly,Equipment that delivers electricity via EVSE ports to charging inlets located on EVs,equip,A
+evse-cable,Models the electrical connection between an evse-port and an EV charging inlet,equip,A
+evse-port,An EVSE port delivers electricity to a single EV charging inlet at a time,equip,A
+flowInverter,System to change direction of substance flow,equip,A
+fumeHood,Ventilation equipment to limit exposure to hazardous fumes,equip,A
+heatExchanger,Equipment to transfer heat between two working fluids,equip,A
+coil,Heat exchanger used to heat or cool air,equip,A
+coolingCoil,Coil used to cool air,equip,A
+heatingCoil,Coil used to heat air,equip,A
+humidifier-equip,Equipment which adds moisture to air to increase humidity,equip,A
+luminaire,Light fixture using electricity to provide illumination,equip,A
+meter,Equipment to meter a substance or phenomenon,equip,A
+elec-meter,Electricity meter,equip,A
+ac-elec-meter,AC Electricity meter,equip,A
+dc-elec-meter,DC Electricity meter,equip,A
+evse-port,An EVSE port delivers electricity to a single EV charging inlet at a time,equip,A
+flow-meter,Meter to measure flow rate and total volume of fluid,equip,A
+motor,Equipment that converts electrical energy into mechanical energy,equip,A
+fan-motor,Motor used with a fan to create air flow,equip,A
+pump-motor,Motor used with a pump to move fluid,equip,A
+panel,Enclosure for electrical and control equipment,equip,A
+controls-panel,Panel housing controllers and networking gear,equip,A
+elec-panel,"Physical housing for electrical circuits, fuses, and breakers",equip,A
+plant,Central plant used to generate a substance for a process,equip,A
+chilled-water-plant,Plant used to generate chilled water for cooling,equip,A
+hot-water-plant,Plant used to generate hot water for heating,equip,A
+steam-plant,Plant used to generate steam for heating,equip,A
+vrf-refrig-plant,Group of outdoor units in a VRF system,equip,A
+rack,Enclosure or chassis used to mount computer and networking gear,equip,A
+radiantEquip,HVAC equipment that conditions a space without forced air,equip,A
+chilledBeam,Conditions a space using a heat exchanger integrated into the ceiling,equip,A
+radiantFloor,Heats a space using pipes or cables embedded beneath floor,equip,A
+radiator,Heats a space using exposed pipes or coils,equip,A
+tank,Tank used to store a substance for temporary holding,equip,A
+thermostat,Senses and controls temperature of space in HVAC system,equip,A
+ups,Uninterruptible power supply,equip,A
+verticalTransport,Equipment to move humans and materials,equip,A
+elevator,Enclosure used to move people between floors,equip,A
+escalator,Moving staircase used to move people between floors,equip,A
+movingWalkway,Conveyor to move people across a horizontal or inclined plane,equip,A
+vrf-equip,Equipment used in VRF systems,equip,A
+branchSelector,Branch selector used for heat recovery in a VRF system,equip,A
+vrf-indoorUnit,Indoor unit in a VRF system,equip,A
+vrf-indoorUnit-fcu,Indoor unit fan coil unit in a VRF system,equip,A
+vrf-outdoorUnit,Outdoor unit with one or more compressors in a VRF system,equip,A
+well,A well is a source of groundwater and potentially thermal energy,equip,A
+computer,General purpose computer,device,A
+laptop,Portable laptop computer,device,A
+server-computer,General purpose computer used as a server,device,A
+controller,Microprocessor based device used in a control system,device,A
+networking-device,Microprocessor device used to establish networks,device,A
+networking-router,Networking device used to route data between different networks,device,A
+networking-switch,Networking device used to connect devices on the same network,device,A
+phone,Telephone used for voice telecommunication,device,A
+mobile-phone,Cellular phone providing telecommunication over radio links,device,A
+tablet,Mobile device with touch screen for user input,device,A
+Abidjan,Abidjan,timezone,A
+Accra,Accra,timezone,A
+Adak,Adak,timezone,A
+Adelaide,Adelaide,timezone,A
+Algiers,Algiers,timezone,A
+Almaty,Almaty,timezone,A
+Amman,Amman,timezone,A
+Amsterdam,Amsterdam,timezone,A
+Anadyr,Anadyr,timezone,A
+Anchorage,Anchorage,timezone,A
+Andorra,Andorra,timezone,A
+Apia,Apia,timezone,A
+Aqtau,Aqtau,timezone,A
+Aqtobe,Aqtobe,timezone,A
+Araguaina,Araguaina,timezone,A
+Ashgabat,Ashgabat,timezone,A
+Astrakhan,Astrakhan,timezone,A
+Asuncion,Asuncion,timezone,A
+Athens,Athens,timezone,A
+Atikokan,Atikokan,timezone,A
+Atyrau,Atyrau,timezone,A
+Auckland,Auckland,timezone,A
+Azores,Azores,timezone,A
+Baghdad,Baghdad,timezone,A
+Bahia,Bahia,timezone,A
+Bahia_Banderas,Bahia_Banderas,timezone,A
+Baku,Baku,timezone,A
+Bangkok,Bangkok,timezone,A
+Barbados,Barbados,timezone,A
+Barnaul,Barnaul,timezone,A
+Beirut,Beirut,timezone,A
+Belem,Belem,timezone,A
+Belgrade,Belgrade,timezone,A
+Belize,Belize,timezone,A
+Berlin,Berlin,timezone,A
+Bermuda,Bermuda,timezone,A
+Beulah,Beulah,timezone,A
+Bishkek,Bishkek,timezone,A
+Bissau,Bissau,timezone,A
+Blanc-Sablon,Blanc-Sablon,timezone,A
+Boa_Vista,Boa_Vista,timezone,A
+Bogota,Bogota,timezone,A
+Boise,Boise,timezone,A
+Bougainville,Bougainville,timezone,A
+Brisbane,Brisbane,timezone,A
+Broken_Hill,Broken_Hill,timezone,A
+Brunei,Brunei,timezone,A
+Brussels,Brussels,timezone,A
+Bucharest,Bucharest,timezone,A
+Budapest,Budapest,timezone,A
+Buenos_Aires,Buenos_Aires,timezone,A
+Cairo,Cairo,timezone,A
+Cambridge_Bay,Cambridge_Bay,timezone,A
+Campo_Grande,Campo_Grande,timezone,A
+Canary,Canary,timezone,A
+Cancun,Cancun,timezone,A
+Cape_Verde,Cape_Verde,timezone,A
+Caracas,Caracas,timezone,A
+Casablanca,Casablanca,timezone,A
+Casey,Casey,timezone,A
+Catamarca,Catamarca,timezone,A
+Cayenne,Cayenne,timezone,A
+Center,Center,timezone,A
+Ceuta,Ceuta,timezone,A
+Chagos,Chagos,timezone,A
+Chatham,Chatham,timezone,A
+Chicago,Chicago,timezone,A
+Chihuahua,Chihuahua,timezone,A
+Chisinau,Chisinau,timezone,A
+Chita,Chita,timezone,A
+Choibalsan,Choibalsan,timezone,A
+Christmas,Christmas,timezone,A
+Chuuk,Chuuk,timezone,A
+Cocos,Cocos,timezone,A
+Colombo,Colombo,timezone,A
+Copenhagen,Copenhagen,timezone,A
+Cordoba,Cordoba,timezone,A
+Costa_Rica,Costa_Rica,timezone,A
+Creston,Creston,timezone,A
+Cuiaba,Cuiaba,timezone,A
+Curacao,Curacao,timezone,A
+Currie,Currie,timezone,A
+Damascus,Damascus,timezone,A
+Danmarkshavn,Danmarkshavn,timezone,A
+Darwin,Darwin,timezone,A
+Davis,Davis,timezone,A
+Dawson,Dawson,timezone,A
+Dawson_Creek,Dawson_Creek,timezone,A
+Denver,Denver,timezone,A
+Detroit,Detroit,timezone,A
+Dhaka,Dhaka,timezone,A
+Dili,Dili,timezone,A
+Dubai,Dubai,timezone,A
+Dublin,Dublin,timezone,A
+DumontDUrville,DumontDUrville,timezone,A
+Dushanbe,Dushanbe,timezone,A
+Easter,Easter,timezone,A
+Edmonton,Edmonton,timezone,A
+Efate,Efate,timezone,A
+Eirunepe,Eirunepe,timezone,A
+El_Aaiun,El_Aaiun,timezone,A
+El_Salvador,El_Salvador,timezone,A
+Enderbury,Enderbury,timezone,A
+Eucla,Eucla,timezone,A
+Fakaofo,Fakaofo,timezone,A
+Famagusta,Famagusta,timezone,A
+Faroe,Faroe,timezone,A
+Fiji,Fiji,timezone,A
+Fort_Nelson,Fort_Nelson,timezone,A
+Fortaleza,Fortaleza,timezone,A
+Funafuti,Funafuti,timezone,A
+GMT,GMT,timezone,A
+GMT+1,GMT+1,timezone,A
+GMT+10,GMT+10,timezone,A
+GMT+11,GMT+11,timezone,A
+GMT+12,GMT+12,timezone,A
+GMT+2,GMT+2,timezone,A
+GMT+3,GMT+3,timezone,A
+GMT+4,GMT+4,timezone,A
+GMT+5,GMT+5,timezone,A
+GMT+6,GMT+6,timezone,A
+GMT+7,GMT+7,timezone,A
+GMT+8,GMT+8,timezone,A
+GMT+9,GMT+9,timezone,A
+GMT-1,GMT-1,timezone,A
+GMT-10,GMT-10,timezone,A
+GMT-11,GMT-11,timezone,A
+GMT-12,GMT-12,timezone,A
+GMT-13,GMT-13,timezone,A
+GMT-14,GMT-14,timezone,A
+GMT-2,GMT-2,timezone,A
+GMT-3,GMT-3,timezone,A
+GMT-4,GMT-4,timezone,A
+GMT-5,GMT-5,timezone,A
+GMT-6,GMT-6,timezone,A
+GMT-7,GMT-7,timezone,A
+GMT-8,GMT-8,timezone,A
+GMT-9,GMT-9,timezone,A
+Galapagos,Galapagos,timezone,A
+Gambier,Gambier,timezone,A
+Gaza,Gaza,timezone,A
+Gibraltar,Gibraltar,timezone,A
+Glace_Bay,Glace_Bay,timezone,A
+Godthab,Godthab,timezone,A
+Goose_Bay,Goose_Bay,timezone,A
+Grand_Turk,Grand_Turk,timezone,A
+Guadalcanal,Guadalcanal,timezone,A
+Guam,Guam,timezone,A
+Guatemala,Guatemala,timezone,A
+Guayaquil,Guayaquil,timezone,A
+Guyana,Guyana,timezone,A
+Halifax,Halifax,timezone,A
+Havana,Havana,timezone,A
+Hebron,Hebron,timezone,A
+Helsinki,Helsinki,timezone,A
+Hermosillo,Hermosillo,timezone,A
+Ho_Chi_Minh,Ho_Chi_Minh,timezone,A
+Hobart,Hobart,timezone,A
+Hong_Kong,Hong_Kong,timezone,A
+Honolulu,Honolulu,timezone,A
+Hovd,Hovd,timezone,A
+Indianapolis,Indianapolis,timezone,A
+Inuvik,Inuvik,timezone,A
+Iqaluit,Iqaluit,timezone,A
+Irkutsk,Irkutsk,timezone,A
+Istanbul,Istanbul,timezone,A
+Jakarta,Jakarta,timezone,A
+Jamaica,Jamaica,timezone,A
+Jayapura,Jayapura,timezone,A
+Jerusalem,Jerusalem,timezone,A
+Johannesburg,Johannesburg,timezone,A
+Juba,Juba,timezone,A
+Jujuy,Jujuy,timezone,A
+Juneau,Juneau,timezone,A
+Kabul,Kabul,timezone,A
+Kaliningrad,Kaliningrad,timezone,A
+Kamchatka,Kamchatka,timezone,A
+Karachi,Karachi,timezone,A
+Kathmandu,Kathmandu,timezone,A
+Kerguelen,Kerguelen,timezone,A
+Khandyga,Khandyga,timezone,A
+Khartoum,Khartoum,timezone,A
+Kiev,Kiev,timezone,A
+Kiritimati,Kiritimati,timezone,A
+Kirov,Kirov,timezone,A
+Knox,Knox,timezone,A
+Kolkata,Kolkata,timezone,A
+Kosrae,Kosrae,timezone,A
+Krasnoyarsk,Krasnoyarsk,timezone,A
+Kuala_Lumpur,Kuala_Lumpur,timezone,A
+Kuching,Kuching,timezone,A
+Kwajalein,Kwajalein,timezone,A
+La_Paz,La_Paz,timezone,A
+La_Rioja,La_Rioja,timezone,A
+Lagos,Lagos,timezone,A
+Lima,Lima,timezone,A
+Lindeman,Lindeman,timezone,A
+Lisbon,Lisbon,timezone,A
+London,London,timezone,A
+Lord_Howe,Lord_Howe,timezone,A
+Los_Angeles,Los_Angeles,timezone,A
+Louisville,Louisville,timezone,A
+Luxembourg,Luxembourg,timezone,A
+Macau,Macau,timezone,A
+Maceio,Maceio,timezone,A
+Macquarie,Macquarie,timezone,A
+Madeira,Madeira,timezone,A
+Madrid,Madrid,timezone,A
+Magadan,Magadan,timezone,A
+Mahe,Mahe,timezone,A
+Majuro,Majuro,timezone,A
+Makassar,Makassar,timezone,A
+Maldives,Maldives,timezone,A
+Malta,Malta,timezone,A
+Managua,Managua,timezone,A
+Manaus,Manaus,timezone,A
+Manila,Manila,timezone,A
+Maputo,Maputo,timezone,A
+Marengo,Marengo,timezone,A
+Marquesas,Marquesas,timezone,A
+Martinique,Martinique,timezone,A
+Matamoros,Matamoros,timezone,A
+Mauritius,Mauritius,timezone,A
+Mawson,Mawson,timezone,A
+Mazatlan,Mazatlan,timezone,A
+Melbourne,Melbourne,timezone,A
+Mendoza,Mendoza,timezone,A
+Menominee,Menominee,timezone,A
+Merida,Merida,timezone,A
+Metlakatla,Metlakatla,timezone,A
+Mexico_City,Mexico_City,timezone,A
+Minsk,Minsk,timezone,A
+Miquelon,Miquelon,timezone,A
+Monaco,Monaco,timezone,A
+Moncton,Moncton,timezone,A
+Monrovia,Monrovia,timezone,A
+Monterrey,Monterrey,timezone,A
+Montevideo,Montevideo,timezone,A
+Monticello,Monticello,timezone,A
+Moscow,Moscow,timezone,A
+Nairobi,Nairobi,timezone,A
+Nassau,Nassau,timezone,A
+Nauru,Nauru,timezone,A
+Ndjamena,Ndjamena,timezone,A
+New_Salem,New_Salem,timezone,A
+New_York,New_York,timezone,A
+Nicosia,Nicosia,timezone,A
+Nipigon,Nipigon,timezone,A
+Niue,Niue,timezone,A
+Nome,Nome,timezone,A
+Norfolk,Norfolk,timezone,A
+Noronha,Noronha,timezone,A
+Noumea,Noumea,timezone,A
+Novokuznetsk,Novokuznetsk,timezone,A
+Novosibirsk,Novosibirsk,timezone,A
+Ojinaga,Ojinaga,timezone,A
+Omsk,Omsk,timezone,A
+Oral,Oral,timezone,A
+Oslo,Oslo,timezone,A
+Pago_Pago,Pago_Pago,timezone,A
+Palau,Palau,timezone,A
+Palmer,Palmer,timezone,A
+Panama,Panama,timezone,A
+Pangnirtung,Pangnirtung,timezone,A
+Paramaribo,Paramaribo,timezone,A
+Paris,Paris,timezone,A
+Perth,Perth,timezone,A
+Petersburg,Petersburg,timezone,A
+Phoenix,Phoenix,timezone,A
+Pitcairn,Pitcairn,timezone,A
+Pohnpei,Pohnpei,timezone,A
+Pontianak,Pontianak,timezone,A
+Port-au-Prince,Port-au-Prince,timezone,A
+Port_Moresby,Port_Moresby,timezone,A
+Port_of_Spain,Port_of_Spain,timezone,A
+Porto_Velho,Porto_Velho,timezone,A
+Prague,Prague,timezone,A
+Puerto_Rico,Puerto_Rico,timezone,A
+Punta_Arenas,Punta_Arenas,timezone,A
+Pyongyang,Pyongyang,timezone,A
+Qatar,Qatar,timezone,A
+Qostanay,Qostanay,timezone,A
+Qyzylorda,Qyzylorda,timezone,A
+Rainy_River,Rainy_River,timezone,A
+Rankin_Inlet,Rankin_Inlet,timezone,A
+Rarotonga,Rarotonga,timezone,A
+Recife,Recife,timezone,A
+Regina,Regina,timezone,A
+Rel,Rel,timezone,A
+Resolute,Resolute,timezone,A
+Reunion,Reunion,timezone,A
+Reykjavik,Reykjavik,timezone,A
+Riga,Riga,timezone,A
+Rio_Branco,Rio_Branco,timezone,A
+Rio_Gallegos,Rio_Gallegos,timezone,A
+Riyadh,Riyadh,timezone,A
+Rome,Rome,timezone,A
+Rothera,Rothera,timezone,A
+Sakhalin,Sakhalin,timezone,A
+Salta,Salta,timezone,A
+Samara,Samara,timezone,A
+Samarkand,Samarkand,timezone,A
+San_Juan,San_Juan,timezone,A
+San_Luis,San_Luis,timezone,A
+Santarem,Santarem,timezone,A
+Santiago,Santiago,timezone,A
+Santo_Domingo,Santo_Domingo,timezone,A
+Sao_Paulo,Sao_Paulo,timezone,A
+Sao_Tome,Sao_Tome,timezone,A
+Saratov,Saratov,timezone,A
+Scoresbysund,Scoresbysund,timezone,A
+Seoul,Seoul,timezone,A
+Shanghai,Shanghai,timezone,A
+Simferopol,Simferopol,timezone,A
+Singapore,Singapore,timezone,A
+Sitka,Sitka,timezone,A
+Sofia,Sofia,timezone,A
+South_Georgia,South_Georgia,timezone,A
+Srednekolymsk,Srednekolymsk,timezone,A
+St_Johns,St_Johns,timezone,A
+Stanley,Stanley,timezone,A
+Stockholm,Stockholm,timezone,A
+Swift_Current,Swift_Current,timezone,A
+Sydney,Sydney,timezone,A
+Syowa,Syowa,timezone,A
+Tahiti,Tahiti,timezone,A
+Taipei,Taipei,timezone,A
+Tallinn,Tallinn,timezone,A
+Tarawa,Tarawa,timezone,A
+Tashkent,Tashkent,timezone,A
+Tbilisi,Tbilisi,timezone,A
+Tegucigalpa,Tegucigalpa,timezone,A
+Tehran,Tehran,timezone,A
+Tell_City,Tell_City,timezone,A
+Thimphu,Thimphu,timezone,A
+Thule,Thule,timezone,A
+Thunder_Bay,Thunder_Bay,timezone,A
+Tijuana,Tijuana,timezone,A
+Tirane,Tirane,timezone,A
+Tokyo,Tokyo,timezone,A
+Tomsk,Tomsk,timezone,A
+Tongatapu,Tongatapu,timezone,A
+Toronto,Toronto,timezone,A
+Tripoli,Tripoli,timezone,A
+Troll,Troll,timezone,A
+Tucuman,Tucuman,timezone,A
+Tunis,Tunis,timezone,A
+UTC,UTC,timezone,A
+Ulaanbaatar,Ulaanbaatar,timezone,A
+Ulyanovsk,Ulyanovsk,timezone,A
+Urumqi,Urumqi,timezone,A
+Ushuaia,Ushuaia,timezone,A
+Ust-Nera,Ust-Nera,timezone,A
+Uzhgorod,Uzhgorod,timezone,A
+Vancouver,Vancouver,timezone,A
+Vevay,Vevay,timezone,A
+Vienna,Vienna,timezone,A
+Vilnius,Vilnius,timezone,A
+Vincennes,Vincennes,timezone,A
+Vladivostok,Vladivostok,timezone,A
+Volgograd,Volgograd,timezone,A
+Vostok,Vostok,timezone,A
+Wake,Wake,timezone,A
+Wallis,Wallis,timezone,A
+Warsaw,Warsaw,timezone,A
+Whitehorse,Whitehorse,timezone,A
+Winamac,Winamac,timezone,A
+Windhoek,Windhoek,timezone,A
+Winnipeg,Winnipeg,timezone,A
+Yakutat,Yakutat,timezone,A
+Yakutsk,Yakutsk,timezone,A
+Yangon,Yangon,timezone,A
+Yekaterinburg,Yekaterinburg,timezone,A
+Yellowknife,Yellowknife,timezone,A
+Yerevan,Yerevan,timezone,A
+Zaporozhye,Zaporozhye,timezone,A
+Zurich,Zurich,timezone,A

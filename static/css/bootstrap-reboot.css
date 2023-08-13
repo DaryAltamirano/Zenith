@@ -274,7 +274,11 @@ fieldset {
   min-width: 0;
   padding: 0;
   margin: 0;
-  border: 0;
+}
+
+.bootstrap-datetimepicker-widget table tr.customText td {
+  height: 24px;
+  line-height: 24px;
 }
 
 legend {

@@ -1,0 +1,67 @@
+{% extends "index.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Sitios Registrados</h4>
+                <!-- <p class="card-category"></p> -->
+            </div>
+            <div class="col-md-12 justify-content-around">
+                <div class="d-flex flex-row" style="padding-top: 20px;">
+                    <a href="{% url 'zoneformSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
+                            aria-hidden="true"></i> | Añadir
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    {% csrf_token %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">Coordenadas</th>
+                                <th scope="col">Zona Horaria</th>
+                                <th class="text-center" scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for zone in zones %}
+                            <tr>
+                                <th scope="row">{{ zone.id }}</th>
+                                <td>{{ zone.name }}</td>
+                                <td>{{ zone.geoAddr }}</td>
+                                <td>{{ zone.geoCoord }}</td>
+                                <td>{{ zone.tz }}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning" onclick=updateZone({{ zone.id }})>
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var BASE_URL = "{{ request.scheme }}://{{ request.get_host }}";
+    function updateZone(id) {
+        window.location.href = BASE_URL + "/sensor/updateFormZone/" + id;
+    }
+</script>
+{% endblock %}

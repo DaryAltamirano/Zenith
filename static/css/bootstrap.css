@@ -297,6 +297,11 @@ legend {
   white-space: normal;
 }
 
+.bootstrap-datetimepicker-widget table tr.customText td {
+  height: 24px;
+  line-height: 24px;
+}
+
 progress {
   vertical-align: baseline;
 }

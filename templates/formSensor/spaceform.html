@@ -1,0 +1,57 @@
+{% extends "index.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Crear Nuevo Espacio</h4>
+            </div>
+
+            <div class="card-body">
+                <form d="space" method="post" action="{% url 'postSpace' %}"
+                    class="row g-3 justify-content-around">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input required type="text" name="name" class="form-control" id="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="spaceref" class="form-label">Tipo </label>
+                        <select required name="spaceref" id="spaceref" class="form-select">
+                            {% for tag in tags %}
+                            {% if tag.category == "space" %}
+                            <option value={{ tag.id }}>{{ tag.id }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="area" class="form-label">Area </label>
+                        <input required type="text" name="area" class="form-control" id="area">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="zone" class="form-label">Sitio </label>
+                        <select required name="zone" id="zone" class="form-select">
+                            {% for zone in zones %}
+                            <option value={{ zone.id }}>{{ zone.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row-reverse">
+                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <a href="{% url  'spacelistSensor' %}" class="btn btn-secondary mx-1">Atras</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

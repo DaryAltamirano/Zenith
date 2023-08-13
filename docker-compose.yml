@@ -1,8 +1,11 @@
 services:
   web:
     container_name: web-zenith
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - .:/code
     ports:
@@ -21,11 +24,15 @@ services:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: zenith
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: zenith
+      MYSQL_USER:  zenith
+      MYSQL_PASSWORD: zenith
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
       - zenith
+
+      
   rabbitmq:
     image: rabbitmq:3.11-management
     container_name: rabbitmq-test

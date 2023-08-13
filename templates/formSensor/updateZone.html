@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Editar Sitio</h4>
+            </div>
+            <div class="card-body">
+                <form id="sensorForm" method="POST" action="{% url 'updateZone' id=zone.id %}"
+                    class="row g-3 justify-content-around">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input required type="text" name="name" class="form-control" id="name"
+                            value="{{ zone.name }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="time_zone" class="form-label">Zona Horaria</label>
+                        <select required name="time_zone" id="time_zone" class="form-select">
+                            {% for tag in tags %}
+                            {% if tag.category == "timezone" %}
+                            <option value={{ tag.id }}>{{ tag.id }}</option>
+                            {% endif %}
+                            {% endfor %}
+                            <option selected value ={{ zone.tz }}>{{ zone.tz }}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="geoAddr" class="form-label">Direccion</label>
+                        <input required type="text" name="geoAddr" class="form-control" id="geoAddr"
+                            value="{{ zone.geoAddr }}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="geoCoord" class="form-label">Direccion</label>
+                        <input required type="text" name="geoCoord" class="form-control" id="geoCoord"
+                            value="{{ zone.geoCoord }}">
+                    </div>
+                    <div class="col-md-12 d-flex flex-row-reverse">
+                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <a href="{% url  'zonelistSensor' %}" class="btn btn-secondary mx-1">Atras</a>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+</script>
+{% endblock %}

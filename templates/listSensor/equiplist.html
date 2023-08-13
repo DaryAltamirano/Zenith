@@ -8,21 +8,16 @@
 
         <div class="card">
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Entidades Registradas</h4>
+                <h4 class="card-title ">Equipos Registrados</h4>
                 <!-- <p class="card-category"></p> -->
             </div>
             <div class="col-md-12 justify-content-around">
                 <div class="d-flex flex-row" style="padding-top: 20px;">
-                    <a href="{% url 'formSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
+                    <a href="{% url 'equipformSensor' %}" type="button" class="btn btn-primary"><i class="fa fa-plus-square"
                             aria-hidden="true"></i> | Añadir
                     </a>
                 </div>
             </div>
-
-            {% for sensor in sensors %}
-
-            {% endfor %}
-
 
             <div class="card-body">
                 <div class="table-responsive">
@@ -32,25 +27,25 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
                                 <th scope="col">Sitio</th>
-                                <th scope="col">Serial</th>
-                                <th scope="col">Metodo</th>
+                                <th scope="col">Espacio</th>
                                 <th class="text-center" scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for sensor in sensors %}
+                            {% for equip in equips %}
                             <tr>
-                                <th scope="row">{{ sensor.id }}</th>
-                                <td>{{ sensor.name }}</td>
-                                <td>{{ sensor.series }}</td>
-                                <td>{{ sensor.zone.name }}</td>
-                                <td>{{ sensor.protocol }}</td>
+                                <th scope="row">{{ equip.id }}</th>
+                                <td>{{ equip.name }}</td>
+                                <td>{{ equip.equipref }}</td>
+                                <td>{{ equip.zone.name }}</td>
+                                <td>{{ equip.space.name }}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-warning" onclick=updateSensor({{ sensor.id }})>
+                                    <button type="button" class="btn btn-warning" onclick=updateEquip({{ equip.id }})>
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </button>
-                                    <button type="button" class="btn btn-danger" onclick=deleteSensor({{ sensor.id }})>
+                                    <button type="button" class="btn btn-danger" onclick=deleteEquip({{ equip.id }})>
                                         <i class="fa fa-trash-o" aria-hidden="true"></i>
                                     </button>
                                 </td>
@@ -68,12 +63,12 @@
 <script>
 
     var BASE_URL = "{{ request.scheme }}://{{ request.get_host }}";
-    function updateSensor(id) {
-        window.location.href = BASE_URL + "/sensor/updateFormSensor/" + id;
+    function updateEquip(id) {
+        window.location.href = BASE_URL + "/sensor/updateFormEquip/" + id;
     }
 
-    function deleteSensor(id) {
-        url = BASE_URL + "/sensor/deleteSensor/" + id
+    function deleteEquip(id) {
+        url = BASE_URL + "/sensor/deleteEquip/" + id
         let csrfToken = document.querySelector('input[name=csrfmiddlewaretoken]').value;
 
         fetch(url, {

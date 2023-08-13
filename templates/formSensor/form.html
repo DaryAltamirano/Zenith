@@ -10,66 +10,82 @@
         <div class="card">
 
             <div class="card-header card-header-primary">
-                <h4 class="card-title ">Crear Nuevo Sensor</h4>
+                <h4 class="card-title ">Crear Nueva Entidad</h4>
                 <!-- <p class="card-category"></p> -->
             </div>
 
             <div class="card-body">
-                <div class="col-md-12 justify-content-around">
-                    <div class="d-flex flex-row-reverse ">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"><i class="fa fa-plus-square" aria-hidden="true"></i> | Zone
-                        </button>
-                    </div>
-                </div>
                 <form id="sensorForm" method="post" action="{% url 'postSensor' %}"
                     class="row g-3 justify-content-around">
                     {% csrf_token %}
-                    <div class="col-md-9">
+                    <span>Datos de la Entidad:</span>
+                    <div class="col-md-12">
                         <label for="name" class="form-label">Nombre</label>
                         <input required type="text" name="name" class="form-control" id="name">
                     </div>
                     <div class="col-md-3">
-                        <label for="inputState" class="form-label">Zona</label>
-                        <select required id="inputState" name="zone" class="form-select">
-                            {% for zone in zones %}
-                            <option value={{ zone.id }}>{{ zone.name }}</option>
+                        <label for="inputStateEquip" class="form-label">Equipo</label>
+                        <select required id="inputStateEquip" name="equip" class="form-select">
+                            <option></option>
+                            {% for equip in equips %}
+                            <option value="{{ equip.id }}" data-space="{{ equip.space.name }}"
+                                data-zone-id="{{ equip.zone.id }}" data-zone-name="{{ equip.zone.name }}">{{ equip.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
-
-                    <div class="col-md-9">
+                    <div class="col-md-3">
+                        <label for="spacename" class="form-label">Espacio</label>
+                        <input required type="text" name="space" class="form-control" id="spacename" readonly>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputState" class="form-label">Sitio</label>
+                        <select required id="inputState" name="zone" class="form-select" disabled>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
                         <label for="serial_uuid" class="form-label">Serial</label>
                         <input required type="text" name="serial" class="form-control" id="serial_uuid">
                     </div>
+                    <div class="col-md-9">
+                        <label for="uri" class="form-label">Url</label>
+                        <input required type="text" name="uri" class="form-control" id="uri">
+                    </div>
+
                     <div class="col-md-3">
                         <label for="protocolState" class="form-label">Protocolo</label>
-                        <select id="protocolState" name="protocol" class="form-select">
-                            <option selected>HTTP</option>
-                            <option>MQTT</option>
+                        <select required id="protocolState" name="protocol" class="form-select">
+                            {% for tag in tags %}
+                            {% if tag.category == "protocol" and tag.state == "A" %}
+                            <option value={{ tag.id }}>{{ tag.id }}</option>
+                            {% endif %}
+                            {% endfor %}
                         </select>
                     </div>
                     
-                    <div id="protocol_http" style="padding: 0px;" >
-
-                        <div class="col-md-12">
-                            <label for="uri" class="form-label">Url</label>
-                            <input required type="text" name="uri" class="form-control" id="uri">
-                        </div>
-
+                    <span>Comunicacion:</span>
+                    <div id="http" style="padding: 0px; display: none;" >
                         <div class="d-flex" style="padding-top: 10px;">
-                            
                             <div class="col-md-6">
-                                <label for="number" class="form-label">Tiempo de espera</label>
-                                <input type="number" name="number" class="form-control" id="number">
+                                <label for="method" class="form-label">Metodo</label>
+                                <select required id="method" name="method" class="form-select">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="measure" class="form-label">Unidad</label>
-                                <select id="measure" name="measure" class="form-select">
-                                    {% for measure in measures %}
-                                    <option>{{ measure }}</option>
-                                    {% endfor %}
-                                </select>
+                                <span> Por Cada:</span>
+                                <div id="number">
+                                    <div class="row">
+                                        <div class="col">
+                                            <select id="hora" class="form-select">
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select id="minute" class="form-select">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex" style="padding-top: 10px;">
@@ -111,13 +127,79 @@
                             </div>
                         </div>
                     </div>
-                    <div id="protocol_mqtt" class="d-flex justify-content-evenly d-none">
 
+                    <div id="mqtt" style="padding: 0px; display: none;">
+                        <div class="d-flex" style="padding-top: 10px;">
+                            <div class="col-md-3">
+                                <label for="user" class="form-label">User</label>
+                                <input required type="text" name="user" class="form-control" id="user">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input required type="text" name="password" class="form-control" id="password">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Puerto</label>
+                                <input required type="text" name="port" class="form-control" id="port">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">TIpo</label>
+                                <input required type="text" name="topic" class="form-control" id="topic">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div id="coap" style="padding: 0px;">
+                        <div class="d-flex" style="padding-top: 10px;">
+                            <div class="col-md-4">
+                                <label for="method" class="form-label">Metodo</label>
+                                <select required id="method" name="method" class="form-select">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <span> Por Cada:</span>
+                                <div id="number">
+                                    <div class="row">
+                                        <div class="col">
+                                            <select id="hora" class="form-select">
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <select id="minute" class="form-select">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="port" class="form-label">Puerto</label>
+                                <input required type="text" name="port" class="form-control" id="port">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="modbus" style="padding: 0px; display: none;">
+                        <div class="d-flex" style="padding-top: 10px;">
+                            <div class="col-md-4">
+                                <label for="comunicacion" class="form-label">Comunicacion</label>
+                                <input required type="text" name="comunicacion" class="form-control" id="comunicacion"
+                                    value="TCP" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="address" class="form-label">Direccion de Unidad</label>
+                                <input required type="text" name="address" class="form-control" id="address">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="port" class="form-label">Puerto</label>
+                                <input required type="text" name="port" class="form-control" id="port">
+                            </div>
+                        </div>
+                    </div>
 
-                        <span> Body:</span>
+                    <span> Body:</span>
+                    <div class="col-md-12">
                         <div id="inputBody">
                             <div class="row">
                                 <div class="col-md-4">
@@ -127,11 +209,14 @@
                                     <input type="text" name="baseBodyValue" class="form-control" placeholder="Value">
                                 </div>
                                 <div class="col-md-4 d-flex">
-                                    <label for="tags" class="form-label">Estandar Haystack</label>
+                                    <label for="tags" class="form-label">Tipo Medida</label>
                                     <select required id="tags" name="baseCategoryValue" class="form-select">
                                         {% for tag in tags %}
+                                        {% if tag.category == "quantity" %}
                                         <option name="baseCategoryValue" value={{ tag.id }}>{{ tag.id }}</option>
+                                        {% endif %}
                                         {% endfor %}
+
                                     </select>
                                 </div>
                             </div>
@@ -140,50 +225,19 @@
                             <i class="fa fa-plus-square" aria-hidden="true"></i> | Body</button>
                     </div>
                     <div class="col-md-12 d-flex flex-row-reverse">
-                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <input required type="submit" value="Guardar" id="submitSensorForm"
+                            class="btn btn-primary mx-1" />
                         <a href="{% url  'listSensor' %}" class="btn btn-secondary mx-1">Atras</a>
 
                     </div>
                 </form>
 
-
-                {# MODAL #}
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Zona</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <form id="zoneForm" method="post" action="{% url 'postZone' %}">
-                                {% csrf_token %}
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Nombre:</label>
-                                        <input required type="text" name="name" class="form-control"
-                                            id="recipient-name">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
-                                    <input required type="submit" value="Guardar" id="submitZoneForm"
-                                        class="btn btn-primary" />
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
 </div>
 <script>
-    let selectProtocol = document.getElementById("protocolState")
 
     document.getElementById("AddInputParams").addEventListener("click", function () {
         var inputContainer = document.getElementById("inputParams");
@@ -245,10 +299,12 @@
                     <input type="text" name="baseBodyValue" class="form-control" placeholder="value">
                 </div>
                 <div class="col-md-4 d-flex" >
-                    <label for="tags" class="form-label">Estandar Haystack</label>
+                    <label for="tags" class="form-label">Tipo Medida</label>
                     <select required id="tags" name="baseCategoryValue" class="form-select">
                         {% for tag in tags %}
+                        {% if tag.category == "quantity" %}
                         <option name="baseCategoryValue" value={{ tag.id }}>{{ tag.id }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
@@ -258,26 +314,51 @@
         inputContainer.appendChild(newInputsDiv);
     });
 
-    selectProtocol.addEventListener('change', function (e) {
-        let select = e.currentTarget.value
-
-        if (select === "HTTP") {
-            document.getElementById("protocol_http").classList.remove("d-none")
-            document.getElementById("protocol_http").required = true;
-            document.getElementById("protocol_mqtt").classList.add("d-none")
-
-        } else if (select === "MQTT") {
-            document.getElementById("protocol_mqtt").classList.remove("d-none")
-            document.getElementById("protocol_mqtt").required = true;
-            document.getElementById("protocol_http").classList.add("d-none")
-        }
-
-    });
-
     function jsonPretty(e) {
         console.log(e.value)
     }
 
+    const equipDropdown = document.getElementById('inputStateEquip');
+    const spacenameTextbox = document.getElementById('spacename');
+    const zoneDropdown = document.getElementById('inputState');
+
+    equipDropdown.addEventListener('change', function () {
+        const selectedOption = this.options[this.selectedIndex];
+        const spaceName = selectedOption.getAttribute('data-space');
+        const zoneId = selectedOption.getAttribute('data-zone-id');
+        const zoneName = selectedOption.getAttribute('data-zone-name');
+
+        spacenameTextbox.value = spaceName;
+
+        zoneDropdown.innerHTML = '';
+
+        const newZoneOption = document.createElement('option');
+        newZoneOption.value = zoneId;
+        newZoneOption.textContent = zoneName;
+        zoneDropdown.appendChild(newZoneOption);
+    });
+
+    let selectProtocol = document.getElementById("protocolState");
+    let communicationDivs = ["http", "mqtt", "coap", "modbus"];
+
+    selectProtocol.addEventListener('change', function (e) {
+        let selectedProtocol = e.currentTarget.value;
+
+        communicationDivs.forEach(protocol => {
+            let element = document.getElementById(protocol);
+            let isCurrent = protocol === selectedProtocol;
+            element.style.display = isCurrent ? "block" : "none";
+
+            let inputs = element.querySelectorAll("input, select");
+            inputs.forEach(input => {
+                input.required = isCurrent;
+                input.disabled = !isCurrent;
+                if (!isCurrent) {
+                    input.value = "";
+                }
+            });
+        });
+    });
 
 </script>
 {% endblock %}

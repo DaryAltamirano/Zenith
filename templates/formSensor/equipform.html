@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block body %}
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Crear Nuevo Equipo</h4>
+            </div>
+
+            <div class="card-body">
+                <form d="equip" method="post" action="{% url 'postEquip' %}"
+                    class="row g-3 justify-content-around">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <label for="name" class="form-label">Nombre</label>
+                        <input required type="text" name="name" class="form-control" id="name">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="equipref" class="form-label">Tipo </label>
+                        <select required name="equipref" id="equipref" class="form-select">
+                            {% for tag in tags %}
+                            {% if tag.category == "equip" %}
+                            <option value={{ tag.id }}>{{ tag.id }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="space" class="form-label">Espacio </label>
+                        <select required name="space" id="space" class="form-select">
+                            <option></option>
+                            {% for space in spaces %}
+                            <option value="{{ space.id }}" data-zone-id="{{ space.zone.id }}" data-zone-name="{{ space.zone.name }}">{{ space.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="zone" class="form-label">Sitio</label>
+                        <select required id="zone" name="zone" class="form-select" disabled>
+                        </select>
+                    </div>
+                    <div class="col-md-12 d-flex flex-row-reverse">
+                        <input required type="submit" value="Guardar" id="submitSensorForm" class="btn btn-primary mx-1" />
+                        <a href="{% url  'equiplistSensor' %}" class="btn btn-secondary mx-1">Atras</a>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const spaceDropdown = document.getElementById('space');
+    const zoneDropdown = document.getElementById('zone');
+
+    spaceDropdown.addEventListener('change', function () {
+        const selectedOption = this.options[this.selectedIndex];
+        const zoneId = selectedOption.getAttribute('data-zone-id');
+        const zoneName = selectedOption.getAttribute('data-zone-name');
+
+        zoneDropdown.innerHTML = '';        
+        const newZoneOption = document.createElement('option');
+        
+        newZoneOption.value = zoneId;
+        newZoneOption.textContent = zoneName;
+        
+        zoneDropdown.appendChild(newZoneOption);
+    });
+</script>
+{% endblock %}

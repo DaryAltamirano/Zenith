@@ -98,7 +98,7 @@ RABBITMQ = {
     }
 }
 
-LOGIN_REDIRECT_URL = '/sensor/form/'
+LOGIN_REDIRECT_URL = '/sensor/list/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Password validation

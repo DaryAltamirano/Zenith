@@ -134,23 +134,27 @@ def updateSensor(request, id):
     data = request.data
 
     sensor = Sensor.objects.filter(id=id).get()
+    equip = Equip.objects.get(id=data.get('equip'))
 
     sensor.name = data.get('name')
     sensor.series = data.get('serial')
     sensor.format = data.get('body_request')
+    sensor.protocol = data.get('protocol')
+    sensor.equip = equip
     sensor.save()
 
-    scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+    if sensor.protocol == "coap":
+        scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+        scheduler.timeline = data.get('timeline')
+        scheduler.save()    
+    if sensor.protocol == "http":
+        scheduler = Scheduler.objects.filter(sensor_id=sensor.id).get()
+        scheduler.timeline = data.get('timeline')
+        scheduler.save()  
+    
     request_data = Request_Model.objects.filter(sensor_id=sensor.id).get()
-
-    request_data.headers = data.get('body_headers')
-    request_data.params = data.get('body_params')
+    request_data.connection = data.get('connection')
     request_data.save()
-
-    scheduler.uri = data.get('uri')
-    scheduler.measure = data.get('measure')
-    scheduler.timeline = data.get('number')
-    scheduler.save()
 
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
@@ -196,12 +200,10 @@ def updateEquip(request, id):
     data = request.data
 
     equip = Equip.objects.filter(id=id).get()
-    zone = Zone.objects.get(id=data.get('zone'))
     space = Space.objects.get(id=data.get('space'))
 
     equip.name = data.get('name')
     equip.equipref = data.get('equipref')
-    equip.zone = zone
     equip.space = space
     equip.save()
 
@@ -238,7 +240,6 @@ def postEquip(request):
     data = request.data
     space = Space.objects.get(id=data.get('space'))
     equip = Equip(name=data.get("name"), 
-                  zone=space.zone,
                   space=space,
                   equipref=data.get("equipref"))
     equip.save()
@@ -248,6 +249,7 @@ def postEquip(request):
 @api_view(['POST'])
 def postSensor(request):
     data = request.data
+    print(data)
     body_list = []
     time_list = []
     for key, value, categoryvalue in zip(data.getlist('baseBodyKey'), data.getlist('baseBodyValue'), data.getlist('baseCategoryValue')):
@@ -265,8 +267,7 @@ def postSensor(request):
         series=data.get('serial'),
         protocol=data.get('protocol'),
         format=body_json,
-        equip=equip,
-        zone=equip.zone
+        equip=equip
     )
     sensor.save()
 
@@ -302,15 +303,8 @@ def postSensor(request):
         scheduler_data.save()
 
     if data.get('protocol') == "http":
-
-        if isinstance(data.get('baseParamKey'), list):
-            print("El objeto es una lista.")
-        else:
-            print("El objeto no es una lista.")
-        #params_dict = {key: value for key, value in zip(data.get('baseParamKey'), data.get('baseParamValue'))}
-        #headers_dict = {key: value for key, value in zip(data.get('baseHeaderKey'), data.get('baseHeaderValue'))}
-        params_dict = {data.get('baseParamKey'):  data.get('baseParamValue')}
-        headers_dict = {data.get('baseHeaderKey'):  data.get('baseHeaderValue')}
+        params_dict = {key: value for key, value in zip(data.getlist('baseParamKey'), data.getlist('baseParamValue'))}
+        headers_dict = {key: value for key, value in zip(data.getlist('baseHeaderKey'), data.getlist('baseHeaderValue'))}
         time_list.append(data.get('minutehttp'))
         time_list.append('/' + str(data.get('horahttp')))
         timescheduler = ' '.join(map(str, time_list))
@@ -320,13 +314,12 @@ def postSensor(request):
             "params": params_dict,
             "headers": headers_dict
         }
-        print(data)
         scheduler_data = Scheduler(
             timeline=timescheduler,
             sensor=sensor
         )
-        #scheduler_data.save()
-    return
+        scheduler_data.save()
+
     request_data = Request_Model(
         connection=json.dumps(conecction_dict),
         sensor=sensor
@@ -355,6 +348,7 @@ def deleteSensor(request, id):
     Sensor.objects.filter(id=id).delete()
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
+    print('respuesta')
     rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action": "delete_sensor"}), "scheduler_cron_jobs")
     return JsonResponse({"status": "ok"})
 
@@ -363,6 +357,3 @@ def deleteSensor(request, id):
 def deleteEquip(request, id):
     Equip.objects.filter(id=id).delete()
     return JsonResponse({"status": "ok"})
-
-
-

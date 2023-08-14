@@ -248,7 +248,6 @@ def postEquip(request):
 @api_view(['POST'])
 def postSensor(request):
     data = request.data
-    print(data)
     body_list = []
     time_list = []
     for key, value, categoryvalue in zip(data.getlist('baseBodyKey'), data.getlist('baseBodyValue'), data.getlist('baseCategoryValue')):
@@ -303,8 +302,15 @@ def postSensor(request):
         scheduler_data.save()
 
     if data.get('protocol') == "http":
-        params_dict = {key: value for key, value in zip(data.get('baseParamKey'), data.get('baseParamValue'))}
-        headers_dict = {key: value for key, value in zip(data.get('baseHeaderKey'), data.get('baseHeaderValue'))}
+
+        if isinstance(data.get('baseParamKey'), list):
+            print("El objeto es una lista.")
+        else:
+            print("El objeto no es una lista.")
+        #params_dict = {key: value for key, value in zip(data.get('baseParamKey'), data.get('baseParamValue'))}
+        #headers_dict = {key: value for key, value in zip(data.get('baseHeaderKey'), data.get('baseHeaderValue'))}
+        params_dict = {data.get('baseParamKey'):  data.get('baseParamValue')}
+        headers_dict = {data.get('baseHeaderKey'):  data.get('baseHeaderValue')}
         time_list.append(data.get('minutehttp'))
         time_list.append('/' + str(data.get('horahttp')))
         timescheduler = ' '.join(map(str, time_list))
@@ -314,12 +320,13 @@ def postSensor(request):
             "params": params_dict,
             "headers": headers_dict
         }
+        print(data)
         scheduler_data = Scheduler(
             timeline=timescheduler,
             sensor=sensor
         )
-        scheduler_data.save()
-
+        #scheduler_data.save()
+    return
     request_data = Request_Model(
         connection=json.dumps(conecction_dict),
         sensor=sensor
@@ -348,7 +355,6 @@ def deleteSensor(request, id):
     Sensor.objects.filter(id=id).delete()
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
-    print('respuesta')
     rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action": "delete_sensor"}), "scheduler_cron_jobs")
     return JsonResponse({"status": "ok"})
 

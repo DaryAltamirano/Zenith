@@ -1,0 +1,1000 @@
+1,dataCenter,office,648m2
+2,ground-floor,kitchen,4m2
+3,room,reception,3m2
+4,roof-floor,conference room,1m2
+5,roof-floor,reception,7m2
+6,floor,conference room,517m2
+7,room,elevator,1m2
+8,dataCenter,restroom,10m2
+9,ground-floor,lobby,25m2
+10,subterranean-floor,kitchen,09m2
+11,dataCenter,staircase,24m2
+12,roof-floor,elevator,5m2
+13,ground-floor,conference room,3m2
+14,ground-floor,staircase,9m2
+15,ground-floor,restroom,3m2
+16,dataCenter,conference room,8m2
+17,ground-floor,kitchen,02m2
+18,floor,restroom,645m2
+19,roof-floor,kitchen,794m2
+20,floor,lobby,4m2
+21,floor,elevator,45m2
+22,room,staircase,9m2
+23,subterranean-floor,reception,9m2
+24,roof-floor,server room,3m2
+25,subterranean-floor,lobby,0m2
+26,floor,reception,05m2
+27,ground-floor,elevator,37m2
+28,roof-floor,restroom,89m2
+29,subterranean-floor,conference room,2m2
+30,room,lobby,487m2
+31,subterranean-floor,server room,05m2
+32,room,server room,13m2
+33,roof-floor,storage room,722m2
+34,dataCenter,storage room,8m2
+35,subterranean-floor,staircase,0m2
+36,floor,restroom,264m2
+37,subterranean-floor,reception,97m2
+38,subterranean-floor,staircase,80m2
+39,subterranean-floor,restroom,062m2
+40,floor,storage room,5m2
+41,subterranean-floor,lobby,71m2
+42,floor,restroom,964m2
+43,floor,office,1m2
+44,dataCenter,restroom,354m2
+45,subterranean-floor,elevator,21m2
+46,ground-floor,office,2m2
+47,dataCenter,restroom,9m2
+48,roof-floor,kitchen,6m2
+49,dataCenter,elevator,0m2
+50,subterranean-floor,office,28m2
+51,roof-floor,elevator,6m2
+52,roof-floor,elevator,8m2
+53,roof-floor,staircase,872m2
+54,subterranean-floor,server room,4m2
+55,subterranean-floor,staircase,2m2
+56,roof-floor,reception,287m2
+57,dataCenter,staircase,26m2
+58,roof-floor,office,1m2
+59,ground-floor,elevator,7m2
+60,dataCenter,staircase,02m2
+61,subterranean-floor,conference room,13m2
+62,room,conference room,749m2
+63,room,server room,11m2
+64,roof-floor,elevator,4m2
+65,subterranean-floor,lobby,47m2
+66,subterranean-floor,staircase,52m2
+67,floor,storage room,268m2
+68,ground-floor,office,5m2
+69,ground-floor,server room,744m2
+70,room,office,67m2
+71,roof-floor,staircase,91m2
+72,ground-floor,elevator,101m2
+73,room,kitchen,3m2
+74,room,kitchen,79m2
+75,dataCenter,lobby,513m2
+76,subterranean-floor,reception,7m2
+77,dataCenter,restroom,055m2
+78,room,kitchen,4m2
+79,roof-floor,lobby,655m2
+80,floor,conference room,9m2
+81,roof-floor,storage room,34m2
+82,room,kitchen,2m2
+83,roof-floor,storage room,151m2
+84,room,restroom,6m2
+85,subterranean-floor,elevator,806m2
+86,ground-floor,reception,8m2
+87,ground-floor,elevator,365m2
+88,dataCenter,lobby,56m2
+89,ground-floor,kitchen,368m2
+90,roof-floor,restroom,28m2
+91,room,elevator,7m2
+92,dataCenter,lobby,476m2
+93,subterranean-floor,elevator,7m2
+94,dataCenter,elevator,28m2
+95,ground-floor,staircase,199m2
+96,room,reception,5m2
+97,room,staircase,127m2
+98,roof-floor,office,542m2
+99,room,lobby,380m2
+100,dataCenter,kitchen,40m2
+101,dataCenter,restroom,42m2
+102,dataCenter,conference room,13m2
+103,room,elevator,5m2
+104,floor,reception,7m2
+105,room,server room,4m2
+106,subterranean-floor,storage room,11m2
+107,room,storage room,0m2
+108,dataCenter,reception,118m2
+109,room,lobby,3m2
+110,roof-floor,elevator,73m2
+111,floor,lobby,0m2
+112,dataCenter,lobby,13m2
+113,room,elevator,754m2
+114,room,lobby,36m2
+115,roof-floor,kitchen,3m2
+116,floor,storage room,760m2
+117,roof-floor,staircase,5m2
+118,floor,staircase,17m2
+119,dataCenter,conference room,087m2
+120,ground-floor,reception,83m2
+121,room,office,50m2
+122,dataCenter,restroom,9m2
+123,roof-floor,storage room,611m2
+124,subterranean-floor,reception,57m2
+125,subterranean-floor,reception,59m2
+126,dataCenter,server room,94m2
+127,subterranean-floor,elevator,93m2
+128,dataCenter,restroom,134m2
+129,roof-floor,restroom,392m2
+130,floor,storage room,201m2
+131,roof-floor,server room,595m2
+132,floor,elevator,53m2
+133,ground-floor,reception,749m2
+134,ground-floor,restroom,36m2
+135,room,lobby,28m2
+136,dataCenter,storage room,6m2
+137,ground-floor,storage room,04m2
+138,subterranean-floor,kitchen,9m2
+139,floor,office,593m2
+140,floor,staircase,473m2
+141,subterranean-floor,staircase,510m2
+142,roof-floor,restroom,1m2
+143,room,restroom,3m2
+144,roof-floor,staircase,71m2
+145,roof-floor,restroom,120m2
+146,dataCenter,reception,838m2
+147,dataCenter,lobby,76m2
+148,room,restroom,05m2
+149,roof-floor,elevator,69m2
+150,room,lobby,623m2
+151,dataCenter,server room,244m2
+152,dataCenter,elevator,971m2
+153,floor,staircase,1m2
+154,floor,storage room,06m2
+155,ground-floor,server room,119m2
+156,room,lobby,03m2
+157,ground-floor,kitchen,00m2
+158,dataCenter,staircase,164m2
+159,room,server room,0m2
+160,subterranean-floor,lobby,63m2
+161,room,staircase,562m2
+162,dataCenter,office,3m2
+163,room,lobby,71m2
+164,ground-floor,server room,5m2
+165,subterranean-floor,reception,789m2
+166,room,storage room,4m2
+167,subterranean-floor,staircase,529m2
+168,floor,lobby,34m2
+169,room,lobby,2m2
+170,room,elevator,6m2
+171,floor,restroom,47m2
+172,roof-floor,reception,40m2
+173,room,staircase,2m2
+174,subterranean-floor,staircase,008m2
+175,subterranean-floor,kitchen,8m2
+176,ground-floor,server room,3m2
+177,room,staircase,5m2
+178,subterranean-floor,office,584m2
+179,subterranean-floor,server room,602m2
+180,roof-floor,staircase,73m2
+181,floor,server room,87m2
+182,roof-floor,staircase,486m2
+183,room,staircase,54m2
+184,subterranean-floor,reception,8m2
+185,floor,elevator,981m2
+186,ground-floor,kitchen,631m2
+187,floor,elevator,5m2
+188,ground-floor,office,92m2
+189,floor,kitchen,347m2
+190,roof-floor,staircase,1m2
+191,dataCenter,reception,4m2
+192,roof-floor,storage room,396m2
+193,roof-floor,storage room,33m2
+194,room,lobby,72m2
+195,roof-floor,restroom,28m2
+196,ground-floor,kitchen,3m2
+197,floor,storage room,922m2
+198,room,elevator,8m2
+199,floor,office,66m2
+200,roof-floor,elevator,33m2
+201,ground-floor,restroom,68m2
+202,room,kitchen,2m2
+203,subterranean-floor,server room,16m2
+204,ground-floor,conference room,739m2
+205,dataCenter,conference room,90m2
+206,roof-floor,conference room,5m2
+207,roof-floor,storage room,53m2
+208,roof-floor,office,098m2
+209,subterranean-floor,reception,455m2
+210,room,reception,426m2
+211,floor,office,3m2
+212,subterranean-floor,elevator,469m2
+213,dataCenter,conference room,0m2
+214,room,conference room,226m2
+215,roof-floor,lobby,2m2
+216,subterranean-floor,office,7m2
+217,floor,lobby,52m2
+218,floor,conference room,68m2
+219,subterranean-floor,conference room,80m2
+220,subterranean-floor,kitchen,6m2
+221,ground-floor,reception,999m2
+222,ground-floor,restroom,45m2
+223,floor,elevator,1m2
+224,floor,staircase,805m2
+225,ground-floor,conference room,8m2
+226,subterranean-floor,staircase,50m2
+227,roof-floor,kitchen,036m2
+228,room,elevator,729m2
+229,room,lobby,971m2
+230,room,elevator,7m2
+231,room,staircase,97m2
+232,ground-floor,reception,00m2
+233,ground-floor,staircase,24m2
+234,roof-floor,kitchen,3m2
+235,ground-floor,restroom,4m2
+236,ground-floor,office,855m2
+237,floor,storage room,4m2
+238,dataCenter,storage room,15m2
+239,floor,kitchen,502m2
+240,subterranean-floor,office,19m2
+241,roof-floor,storage room,34m2
+242,ground-floor,server room,78m2
+243,ground-floor,office,7m2
+244,room,kitchen,81m2
+245,ground-floor,storage room,6m2
+246,subterranean-floor,kitchen,12m2
+247,subterranean-floor,staircase,57m2
+248,floor,kitchen,1m2
+249,ground-floor,storage room,38m2
+250,roof-floor,conference room,9m2
+251,dataCenter,staircase,83m2
+252,dataCenter,kitchen,57m2
+253,room,storage room,34m2
+254,room,restroom,9m2
+255,subterranean-floor,lobby,888m2
+256,subterranean-floor,kitchen,73m2
+257,room,server room,54m2
+258,floor,restroom,980m2
+259,ground-floor,conference room,6m2
+260,roof-floor,server room,0m2
+261,room,reception,3m2
+262,room,storage room,0m2
+263,ground-floor,office,008m2
+264,dataCenter,storage room,96m2
+265,subterranean-floor,lobby,470m2
+266,roof-floor,staircase,408m2
+267,ground-floor,restroom,873m2
+268,subterranean-floor,reception,93m2
+269,dataCenter,restroom,822m2
+270,floor,storage room,87m2
+271,room,office,0m2
+272,ground-floor,restroom,4m2
+273,floor,server room,357m2
+274,roof-floor,elevator,23m2
+275,roof-floor,elevator,92m2
+276,subterranean-floor,office,320m2
+277,ground-floor,server room,7m2
+278,ground-floor,server room,621m2
+279,dataCenter,storage room,384m2
+280,floor,server room,892m2
+281,subterranean-floor,office,50m2
+282,floor,conference room,8m2
+283,dataCenter,restroom,719m2
+284,room,reception,65m2
+285,roof-floor,staircase,2m2
+286,floor,elevator,8m2
+287,room,conference room,90m2
+288,room,reception,583m2
+289,ground-floor,office,0m2
+290,room,storage room,0m2
+291,subterranean-floor,server room,54m2
+292,ground-floor,reception,2m2
+293,roof-floor,server room,93m2
+294,dataCenter,elevator,3m2
+295,room,elevator,25m2
+296,roof-floor,server room,574m2
+297,subterranean-floor,kitchen,575m2
+298,dataCenter,office,8m2
+299,roof-floor,staircase,705m2
+300,floor,reception,4m2
+301,ground-floor,restroom,26m2
+302,room,staircase,78m2
+303,subterranean-floor,lobby,81m2
+304,floor,elevator,2m2
+305,floor,reception,47m2
+306,ground-floor,reception,304m2
+307,dataCenter,server room,6m2
+308,dataCenter,elevator,34m2
+309,floor,elevator,175m2
+310,floor,conference room,1m2
+311,subterranean-floor,server room,763m2
+312,roof-floor,reception,71m2
+313,roof-floor,conference room,39m2
+314,ground-floor,server room,25m2
+315,floor,restroom,4m2
+316,roof-floor,elevator,11m2
+317,ground-floor,kitchen,868m2
+318,floor,staircase,761m2
+319,floor,elevator,10m2
+320,roof-floor,storage room,05m2
+321,roof-floor,staircase,079m2
+322,roof-floor,staircase,60m2
+323,dataCenter,reception,04m2
+324,room,reception,14m2
+325,room,kitchen,6m2
+326,roof-floor,lobby,40m2
+327,roof-floor,conference room,789m2
+328,floor,elevator,0m2
+329,room,conference room,32m2
+330,subterranean-floor,kitchen,69m2
+331,floor,storage room,4m2
+332,roof-floor,elevator,6m2
+333,ground-floor,lobby,49m2
+334,floor,reception,370m2
+335,room,office,0m2
+336,ground-floor,elevator,8m2
+337,floor,lobby,9m2
+338,ground-floor,elevator,819m2
+339,floor,office,93m2
+340,ground-floor,elevator,601m2
+341,ground-floor,server room,96m2
+342,room,elevator,1m2
+343,roof-floor,restroom,08m2
+344,subterranean-floor,office,492m2
+345,dataCenter,server room,27m2
+346,roof-floor,server room,282m2
+347,ground-floor,staircase,38m2
+348,ground-floor,restroom,4m2
+349,dataCenter,kitchen,503m2
+350,floor,restroom,352m2
+351,subterranean-floor,reception,38m2
+352,roof-floor,staircase,73m2
+353,room,server room,41m2
+354,roof-floor,restroom,4m2
+355,roof-floor,reception,9m2
+356,roof-floor,office,6m2
+357,room,reception,08m2
+358,dataCenter,office,27m2
+359,dataCenter,elevator,402m2
+360,ground-floor,reception,310m2
+361,subterranean-floor,kitchen,18m2
+362,subterranean-floor,kitchen,8m2
+363,roof-floor,elevator,847m2
+364,dataCenter,server room,62m2
+365,room,staircase,4m2
+366,room,reception,6m2
+367,roof-floor,conference room,3m2
+368,dataCenter,reception,910m2
+369,roof-floor,lobby,9m2
+370,subterranean-floor,conference room,5m2
+371,subterranean-floor,office,025m2
+372,ground-floor,storage room,841m2
+373,dataCenter,restroom,02m2
+374,floor,staircase,68m2
+375,floor,staircase,4m2
+376,room,storage room,011m2
+377,roof-floor,server room,029m2
+378,roof-floor,kitchen,31m2
+379,subterranean-floor,server room,288m2
+380,subterranean-floor,storage room,4m2
+381,ground-floor,server room,05m2
+382,ground-floor,restroom,68m2
+383,ground-floor,staircase,64m2
+384,roof-floor,reception,66m2
+385,subterranean-floor,staircase,72m2
+386,floor,staircase,85m2
+387,subterranean-floor,office,5m2
+388,ground-floor,elevator,4m2
+389,roof-floor,kitchen,073m2
+390,roof-floor,staircase,7m2
+391,roof-floor,reception,1m2
+392,room,storage room,6m2
+393,room,reception,010m2
+394,roof-floor,elevator,681m2
+395,dataCenter,office,95m2
+396,room,office,4m2
+397,room,elevator,78m2
+398,room,lobby,28m2
+399,room,lobby,877m2
+400,dataCenter,conference room,12m2
+401,room,elevator,4m2
+402,dataCenter,restroom,7m2
+403,roof-floor,conference room,847m2
+404,subterranean-floor,storage room,1m2
+405,subterranean-floor,lobby,59m2
+406,roof-floor,reception,86m2
+407,dataCenter,staircase,039m2
+408,ground-floor,office,569m2
+409,ground-floor,storage room,26m2
+410,ground-floor,server room,3m2
+411,roof-floor,restroom,48m2
+412,floor,office,60m2
+413,subterranean-floor,storage room,462m2
+414,room,conference room,783m2
+415,floor,lobby,476m2
+416,dataCenter,office,8m2
+417,ground-floor,elevator,84m2
+418,room,kitchen,49m2
+419,room,restroom,09m2
+420,floor,staircase,886m2
+421,dataCenter,elevator,33m2
+422,room,storage room,674m2
+423,roof-floor,server room,749m2
+424,floor,conference room,12m2
+425,ground-floor,office,950m2
+426,subterranean-floor,office,665m2
+427,room,storage room,14m2
+428,floor,lobby,50m2
+429,floor,office,871m2
+430,roof-floor,kitchen,063m2
+431,roof-floor,staircase,316m2
+432,roof-floor,elevator,4m2
+433,dataCenter,restroom,48m2
+434,room,conference room,731m2
+435,dataCenter,kitchen,058m2
+436,ground-floor,restroom,063m2
+437,dataCenter,restroom,49m2
+438,dataCenter,office,146m2
+439,ground-floor,server room,513m2
+440,floor,reception,576m2
+441,subterranean-floor,reception,6m2
+442,ground-floor,lobby,7m2
+443,roof-floor,elevator,974m2
+444,dataCenter,reception,1m2
+445,room,staircase,59m2
+446,roof-floor,restroom,98m2
+447,ground-floor,lobby,59m2
+448,ground-floor,conference room,92m2
+449,dataCenter,conference room,98m2
+450,room,restroom,504m2
+451,roof-floor,staircase,853m2
+452,ground-floor,conference room,10m2
+453,ground-floor,staircase,25m2
+454,dataCenter,server room,4m2
+455,subterranean-floor,office,310m2
+456,roof-floor,reception,12m2
+457,room,staircase,54m2
+458,room,restroom,0m2
+459,room,conference room,5m2
+460,ground-floor,server room,968m2
+461,floor,server room,622m2
+462,subterranean-floor,office,096m2
+463,room,office,230m2
+464,floor,restroom,668m2
+465,floor,office,844m2
+466,dataCenter,server room,875m2
+467,floor,reception,275m2
+468,subterranean-floor,elevator,40m2
+469,room,lobby,64m2
+470,room,restroom,943m2
+471,ground-floor,reception,35m2
+472,floor,restroom,52m2
+473,roof-floor,storage room,655m2
+474,floor,conference room,1m2
+475,roof-floor,storage room,40m2
+476,dataCenter,reception,1m2
+477,roof-floor,storage room,43m2
+478,roof-floor,storage room,26m2
+479,ground-floor,conference room,08m2
+480,roof-floor,restroom,9m2
+481,roof-floor,lobby,873m2
+482,floor,server room,511m2
+483,roof-floor,restroom,567m2
+484,roof-floor,office,85m2
+485,subterranean-floor,staircase,42m2
+486,dataCenter,staircase,0m2
+487,room,staircase,2m2
+488,floor,server room,53m2
+489,ground-floor,reception,85m2
+490,subterranean-floor,staircase,85m2
+491,floor,office,1m2
+492,dataCenter,lobby,472m2
+493,dataCenter,restroom,3m2
+494,roof-floor,office,20m2
+495,roof-floor,conference room,4m2
+496,ground-floor,staircase,625m2
+497,roof-floor,storage room,0m2
+498,roof-floor,restroom,783m2
+499,floor,elevator,47m2
+500,dataCenter,storage room,7m2
+501,room,storage room,985m2
+502,room,storage room,009m2
+503,dataCenter,restroom,1m2
+504,dataCenter,office,809m2
+505,ground-floor,restroom,310m2
+506,roof-floor,elevator,14m2
+507,room,office,75m2
+508,roof-floor,reception,146m2
+509,floor,office,1m2
+510,floor,storage room,3m2
+511,floor,office,23m2
+512,room,restroom,7m2
+513,room,office,3m2
+514,roof-floor,staircase,847m2
+515,dataCenter,lobby,08m2
+516,room,restroom,5m2
+517,roof-floor,reception,3m2
+518,subterranean-floor,office,9m2
+519,room,office,9m2
+520,ground-floor,elevator,084m2
+521,subterranean-floor,elevator,667m2
+522,room,storage room,12m2
+523,ground-floor,storage room,35m2
+524,room,office,68m2
+525,ground-floor,office,4m2
+526,dataCenter,restroom,39m2
+527,room,staircase,305m2
+528,roof-floor,elevator,0m2
+529,roof-floor,reception,227m2
+530,subterranean-floor,kitchen,9m2
+531,floor,office,535m2
+532,ground-floor,staircase,52m2
+533,subterranean-floor,elevator,7m2
+534,ground-floor,office,06m2
+535,dataCenter,staircase,10m2
+536,subterranean-floor,staircase,9m2
+537,roof-floor,storage room,882m2
+538,ground-floor,reception,6m2
+539,subterranean-floor,conference room,87m2
+540,subterranean-floor,kitchen,4m2
+541,floor,lobby,49m2
+542,dataCenter,elevator,53m2
+543,floor,restroom,6m2
+544,dataCenter,elevator,531m2
+545,subterranean-floor,reception,7m2
+546,room,reception,951m2
+547,ground-floor,server room,723m2
+548,ground-floor,elevator,9m2
+549,room,lobby,31m2
+550,room,conference room,36m2
+551,ground-floor,office,7m2
+552,dataCenter,kitchen,3m2
+553,subterranean-floor,kitchen,501m2
+554,subterranean-floor,reception,5m2
+555,ground-floor,restroom,858m2
+556,floor,kitchen,4m2
+557,subterranean-floor,office,3m2
+558,room,kitchen,70m2
+559,dataCenter,elevator,16m2
+560,room,lobby,5m2
+561,dataCenter,server room,465m2
+562,roof-floor,kitchen,4m2
+563,ground-floor,office,047m2
+564,ground-floor,kitchen,652m2
+565,ground-floor,lobby,276m2
+566,room,office,04m2
+567,subterranean-floor,kitchen,107m2
+568,room,reception,814m2
+569,ground-floor,elevator,8m2
+570,dataCenter,kitchen,3m2
+571,room,staircase,100m2
+572,dataCenter,server room,89m2
+573,subterranean-floor,restroom,9m2
+574,floor,office,097m2
+575,subterranean-floor,kitchen,6m2
+576,ground-floor,restroom,3m2
+577,room,staircase,26m2
+578,dataCenter,kitchen,44m2
+579,ground-floor,staircase,2m2
+580,room,lobby,29m2
+581,floor,lobby,0m2
+582,roof-floor,kitchen,904m2
+583,ground-floor,kitchen,4m2
+584,ground-floor,staircase,426m2
+585,room,server room,9m2
+586,floor,staircase,7m2
+587,subterranean-floor,server room,489m2
+588,dataCenter,reception,329m2
+589,room,kitchen,8m2
+590,room,conference room,7m2
+591,floor,reception,1m2
+592,roof-floor,lobby,1m2
+593,ground-floor,lobby,944m2
+594,floor,lobby,0m2
+595,floor,reception,661m2
+596,dataCenter,elevator,048m2
+597,subterranean-floor,elevator,4m2
+598,dataCenter,staircase,15m2
+599,roof-floor,server room,5m2
+600,subterranean-floor,staircase,0m2
+601,room,lobby,63m2
+602,room,lobby,30m2
+603,floor,reception,54m2
+604,floor,conference room,3m2
+605,dataCenter,storage room,78m2
+606,roof-floor,kitchen,636m2
+607,floor,staircase,2m2
+608,dataCenter,restroom,572m2
+609,floor,elevator,4m2
+610,ground-floor,conference room,51m2
+611,floor,elevator,264m2
+612,dataCenter,restroom,64m2
+613,floor,server room,46m2
+614,roof-floor,elevator,387m2
+615,dataCenter,office,10m2
+616,room,lobby,003m2
+617,subterranean-floor,conference room,779m2
+618,dataCenter,staircase,3m2
+619,subterranean-floor,server room,4m2
+620,dataCenter,reception,923m2
+621,dataCenter,conference room,925m2
+622,roof-floor,storage room,9m2
+623,room,restroom,75m2
+624,room,reception,9m2
+625,dataCenter,office,6m2
+626,roof-floor,staircase,816m2
+627,floor,office,32m2
+628,subterranean-floor,staircase,0m2
+629,dataCenter,staircase,43m2
+630,subterranean-floor,storage room,579m2
+631,ground-floor,storage room,8m2
+632,roof-floor,conference room,5m2
+633,ground-floor,elevator,834m2
+634,ground-floor,elevator,5m2
+635,ground-floor,staircase,05m2
+636,roof-floor,storage room,440m2
+637,ground-floor,conference room,831m2
+638,roof-floor,office,5m2
+639,floor,elevator,8m2
+640,floor,storage room,5m2
+641,subterranean-floor,conference room,713m2
+642,ground-floor,reception,04m2
+643,dataCenter,elevator,67m2
+644,roof-floor,storage room,31m2
+645,floor,office,203m2
+646,subterranean-floor,elevator,66m2
+647,roof-floor,staircase,714m2
+648,floor,kitchen,717m2
+649,roof-floor,lobby,87m2
+650,floor,lobby,725m2
+651,roof-floor,storage room,85m2
+652,dataCenter,office,2m2
+653,dataCenter,kitchen,9m2
+654,floor,restroom,4m2
+655,dataCenter,reception,0m2
+656,dataCenter,elevator,4m2
+657,subterranean-floor,kitchen,29m2
+658,floor,lobby,45m2
+659,room,conference room,832m2
+660,room,staircase,1m2
+661,roof-floor,conference room,39m2
+662,room,kitchen,4m2
+663,room,reception,10m2
+664,floor,restroom,375m2
+665,floor,lobby,5m2
+666,floor,office,2m2
+667,subterranean-floor,elevator,016m2
+668,roof-floor,elevator,94m2
+669,roof-floor,kitchen,7m2
+670,floor,office,017m2
+671,roof-floor,office,9m2
+672,ground-floor,conference room,9m2
+673,ground-floor,elevator,41m2
+674,dataCenter,staircase,546m2
+675,subterranean-floor,elevator,48m2
+676,ground-floor,storage room,542m2
+677,subterranean-floor,lobby,905m2
+678,ground-floor,elevator,326m2
+679,floor,lobby,3m2
+680,room,conference room,87m2
+681,roof-floor,staircase,56m2
+682,ground-floor,conference room,59m2
+683,room,server room,0m2
+684,room,reception,27m2
+685,ground-floor,lobby,12m2
+686,dataCenter,lobby,569m2
+687,room,staircase,9m2
+688,subterranean-floor,office,54m2
+689,floor,kitchen,3m2
+690,ground-floor,server room,45m2
+691,floor,staircase,4m2
+692,room,restroom,2m2
+693,roof-floor,kitchen,31m2
+694,ground-floor,kitchen,5m2
+695,ground-floor,storage room,12m2
+696,roof-floor,conference room,9m2
+697,floor,reception,3m2
+698,ground-floor,storage room,06m2
+699,dataCenter,office,646m2
+700,ground-floor,office,168m2
+701,dataCenter,kitchen,8m2
+702,room,kitchen,23m2
+703,dataCenter,restroom,456m2
+704,roof-floor,office,06m2
+705,floor,server room,48m2
+706,ground-floor,storage room,528m2
+707,subterranean-floor,reception,314m2
+708,floor,office,5m2
+709,roof-floor,kitchen,4m2
+710,subterranean-floor,conference room,637m2
+711,subterranean-floor,staircase,811m2
+712,subterranean-floor,lobby,522m2
+713,room,lobby,059m2
+714,subterranean-floor,office,174m2
+715,dataCenter,kitchen,5m2
+716,room,elevator,22m2
+717,floor,conference room,60m2
+718,roof-floor,kitchen,8m2
+719,ground-floor,conference room,16m2
+720,subterranean-floor,reception,723m2
+721,dataCenter,reception,616m2
+722,subterranean-floor,office,149m2
+723,subterranean-floor,office,5m2
+724,roof-floor,staircase,129m2
+725,dataCenter,conference room,8m2
+726,subterranean-floor,conference room,795m2
+727,subterranean-floor,kitchen,650m2
+728,floor,office,53m2
+729,subterranean-floor,storage room,31m2
+730,dataCenter,kitchen,1m2
+731,floor,reception,90m2
+732,room,office,24m2
+733,dataCenter,elevator,163m2
+734,subterranean-floor,reception,05m2
+735,ground-floor,kitchen,22m2
+736,dataCenter,kitchen,60m2
+737,roof-floor,staircase,88m2
+738,subterranean-floor,office,9m2
+739,dataCenter,staircase,5m2
+740,roof-floor,conference room,25m2
+741,ground-floor,server room,42m2
+742,floor,reception,857m2
+743,roof-floor,lobby,894m2
+744,floor,storage room,6m2
+745,roof-floor,restroom,0m2
+746,roof-floor,kitchen,92m2
+747,floor,lobby,09m2
+748,room,lobby,2m2
+749,dataCenter,restroom,487m2
+750,subterranean-floor,server room,3m2
+751,ground-floor,storage room,904m2
+752,subterranean-floor,kitchen,118m2
+753,floor,kitchen,644m2
+754,ground-floor,staircase,0m2
+755,subterranean-floor,storage room,65m2
+756,floor,kitchen,20m2
+757,ground-floor,conference room,451m2
+758,roof-floor,storage room,643m2
+759,floor,lobby,47m2
+760,room,office,65m2
+761,dataCenter,kitchen,117m2
+762,ground-floor,server room,339m2
+763,roof-floor,office,803m2
+764,floor,staircase,5m2
+765,subterranean-floor,kitchen,5m2
+766,roof-floor,elevator,7m2
+767,dataCenter,elevator,9m2
+768,room,restroom,57m2
+769,dataCenter,lobby,359m2
+770,ground-floor,storage room,8m2
+771,dataCenter,lobby,48m2
+772,dataCenter,server room,113m2
+773,subterranean-floor,server room,4m2
+774,ground-floor,lobby,894m2
+775,floor,office,477m2
+776,floor,restroom,368m2
+777,floor,storage room,28m2
+778,room,storage room,377m2
+779,room,reception,23m2
+780,dataCenter,server room,7m2
+781,ground-floor,conference room,1m2
+782,dataCenter,conference room,8m2
+783,subterranean-floor,server room,154m2
+784,room,lobby,53m2
+785,roof-floor,reception,511m2
+786,subterranean-floor,kitchen,83m2
+787,room,office,805m2
+788,dataCenter,lobby,0m2
+789,room,storage room,7m2
+790,room,kitchen,16m2
+791,roof-floor,elevator,68m2
+792,ground-floor,kitchen,90m2
+793,ground-floor,restroom,209m2
+794,subterranean-floor,office,3m2
+795,floor,lobby,818m2
+796,floor,reception,5m2
+797,room,lobby,728m2
+798,subterranean-floor,restroom,6m2
+799,roof-floor,restroom,869m2
+800,room,restroom,493m2
+801,floor,staircase,744m2
+802,dataCenter,restroom,308m2
+803,subterranean-floor,kitchen,94m2
+804,room,kitchen,143m2
+805,ground-floor,reception,66m2
+806,roof-floor,office,23m2
+807,room,conference room,2m2
+808,ground-floor,office,27m2
+809,dataCenter,storage room,25m2
+810,floor,staircase,8m2
+811,roof-floor,elevator,060m2
+812,dataCenter,reception,6m2
+813,room,kitchen,106m2
+814,floor,lobby,8m2
+815,ground-floor,conference room,353m2
+816,roof-floor,server room,59m2
+817,room,conference room,0m2
+818,room,conference room,6m2
+819,roof-floor,storage room,9m2
+820,subterranean-floor,lobby,9m2
+821,floor,reception,452m2
+822,roof-floor,lobby,442m2
+823,floor,elevator,040m2
+824,room,server room,58m2
+825,ground-floor,kitchen,0m2
+826,roof-floor,server room,981m2
+827,room,office,9m2
+828,room,staircase,69m2
+829,roof-floor,elevator,982m2
+830,room,storage room,95m2
+831,subterranean-floor,kitchen,368m2
+832,dataCenter,reception,267m2
+833,ground-floor,lobby,1m2
+834,subterranean-floor,conference room,027m2
+835,room,storage room,67m2
+836,dataCenter,kitchen,42m2
+837,dataCenter,server room,98m2
+838,floor,conference room,7m2
+839,dataCenter,lobby,329m2
+840,ground-floor,reception,648m2
+841,roof-floor,reception,705m2
+842,room,server room,42m2
+843,subterranean-floor,reception,96m2
+844,roof-floor,kitchen,28m2
+845,subterranean-floor,lobby,86m2
+846,ground-floor,conference room,4m2
+847,room,office,714m2
+848,roof-floor,office,136m2
+849,ground-floor,lobby,92m2
+850,roof-floor,restroom,561m2
+851,room,office,4m2
+852,ground-floor,staircase,0m2
+853,room,restroom,6m2
+854,room,office,29m2
+855,ground-floor,kitchen,96m2
+856,dataCenter,kitchen,6m2
+857,ground-floor,server room,22m2
+858,subterranean-floor,server room,4m2
+859,floor,staircase,616m2
+860,ground-floor,conference room,259m2
+861,subterranean-floor,office,3m2
+862,ground-floor,reception,96m2
+863,subterranean-floor,kitchen,9m2
+864,ground-floor,restroom,5m2
+865,ground-floor,reception,595m2
+866,dataCenter,storage room,26m2
+867,dataCenter,kitchen,6m2
+868,subterranean-floor,lobby,974m2
+869,roof-floor,staircase,7m2
+870,dataCenter,staircase,983m2
+871,floor,kitchen,44m2
+872,room,lobby,249m2
+873,ground-floor,reception,3m2
+874,room,kitchen,80m2
+875,room,server room,63m2
+876,dataCenter,server room,460m2
+877,subterranean-floor,lobby,112m2
+878,room,reception,3m2
+879,floor,kitchen,5m2
+880,roof-floor,staircase,02m2
+881,roof-floor,restroom,124m2
+882,dataCenter,kitchen,73m2
+883,subterranean-floor,lobby,64m2
+884,ground-floor,reception,423m2
+885,subterranean-floor,conference room,439m2
+886,dataCenter,conference room,81m2
+887,subterranean-floor,lobby,424m2
+888,dataCenter,staircase,4m2
+889,floor,restroom,1m2
+890,floor,storage room,41m2
+891,floor,staircase,3m2
+892,floor,restroom,6m2
+893,roof-floor,storage room,814m2
+894,subterranean-floor,office,5m2
+895,subterranean-floor,server room,43m2
+896,room,conference room,05m2
+897,dataCenter,conference room,3m2
+898,dataCenter,conference room,887m2
+899,dataCenter,server room,000m2
+900,room,storage room,729m2
+901,subterranean-floor,staircase,886m2
+902,subterranean-floor,server room,9m2
+903,ground-floor,conference room,725m2
+904,room,storage room,7m2
+905,ground-floor,reception,1m2
+906,floor,kitchen,526m2
+907,ground-floor,conference room,157m2
+908,ground-floor,lobby,5m2
+909,ground-floor,storage room,3m2
+910,subterranean-floor,storage room,309m2
+911,subterranean-floor,conference room,79m2
+912,room,server room,80m2
+913,ground-floor,storage room,080m2
+914,subterranean-floor,staircase,479m2
+915,room,kitchen,898m2
+916,dataCenter,storage room,004m2
+917,ground-floor,server room,7m2
+918,dataCenter,office,45m2
+919,ground-floor,storage room,9m2
+920,floor,lobby,4m2
+921,ground-floor,office,04m2
+922,ground-floor,reception,879m2
+923,room,server room,7m2
+924,dataCenter,reception,5m2
+925,dataCenter,office,81m2
+926,floor,server room,8m2
+927,dataCenter,server room,8m2
+928,subterranean-floor,staircase,5m2
+929,floor,kitchen,65m2
+930,subterranean-floor,elevator,55m2
+931,subterranean-floor,server room,41m2
+932,ground-floor,restroom,97m2
+933,ground-floor,reception,8m2
+934,roof-floor,elevator,179m2
+935,room,storage room,870m2
+936,dataCenter,storage room,01m2
+937,room,reception,01m2
+938,roof-floor,storage room,322m2
+939,floor,conference room,17m2
+940,room,elevator,47m2
+941,floor,kitchen,10m2
+942,floor,reception,8m2
+943,subterranean-floor,staircase,180m2
+944,room,restroom,52m2
+945,dataCenter,office,40m2
+946,floor,staircase,6m2
+947,subterranean-floor,storage room,0m2
+948,room,reception,80m2
+949,roof-floor,conference room,08m2
+950,dataCenter,lobby,7m2
+951,roof-floor,office,04m2
+952,subterranean-floor,storage room,7m2
+953,floor,lobby,2m2
+954,dataCenter,staircase,09m2
+955,dataCenter,reception,9m2
+956,dataCenter,staircase,8m2
+957,subterranean-floor,staircase,8m2
+958,subterranean-floor,elevator,97m2
+959,subterranean-floor,office,212m2
+960,ground-floor,office,1m2
+961,ground-floor,server room,0m2
+962,dataCenter,reception,4m2
+963,floor,lobby,32m2
+964,roof-floor,elevator,03m2
+965,roof-floor,lobby,03m2
+966,roof-floor,lobby,68m2
+967,room,office,620m2
+968,room,storage room,81m2
+969,dataCenter,office,65m2
+970,floor,lobby,9m2
+971,subterranean-floor,lobby,7m2
+972,roof-floor,lobby,5m2
+973,room,restroom,0m2
+974,room,restroom,57m2
+975,dataCenter,conference room,51m2
+976,ground-floor,kitchen,85m2
+977,subterranean-floor,storage room,86m2
+978,floor,storage room,7m2
+979,room,office,830m2
+980,roof-floor,server room,45m2
+981,dataCenter,restroom,73m2
+982,floor,elevator,46m2
+983,ground-floor,kitchen,4m2
+984,ground-floor,staircase,7m2
+985,roof-floor,reception,66m2
+986,dataCenter,office,695m2
+987,room,staircase,087m2
+988,ground-floor,kitchen,84m2
+989,ground-floor,office,035m2
+990,ground-floor,restroom,480m2
+991,ground-floor,kitchen,60m2
+992,room,reception,84m2
+993,roof-floor,staircase,0m2
+994,dataCenter,lobby,3m2
+995,roof-floor,conference room,072m2
+996,floor,kitchen,477m2
+997,subterranean-floor,elevator,964m2
+998,floor,server room,88m2
+999,roof-floor,reception,80m2
+1000,roof-floor,lobby,227m2

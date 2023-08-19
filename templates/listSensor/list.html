@@ -43,8 +43,8 @@
                             <tr>
                                 <th scope="row">{{ sensor.id }}</th>
                                 <td>{{ sensor.name }}</td>
-                                <td>{{ sensor.series }}</td>
                                 <td>{{ sensor.equip.space.zone.name }}</td>
+                                <td>{{ sensor.series }}</td>
                                 <td>{{ sensor.protocol }}</td>
                                 <td class="text-center">
                                     <button type="button" class="btn btn-warning" onclick=updateSensor({{ sensor.id }})>

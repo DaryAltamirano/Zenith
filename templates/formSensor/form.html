@@ -29,7 +29,7 @@
                             <option></option>
                             {% for equip in equips %}
                             <option value="{{ equip.id }}" data-space="{{ equip.space.name }}"
-                            data-zone-id="{{ equip.space.zone.id }}" data-zone-name="{{ equip.space.zone.name }}">{{ equip.name }}</option>
+                                data-zone-id="{{ equip.space.zone.id }}" data-zone-name="{{ equip.space.zone.name }}">{{ equip.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -143,7 +143,7 @@
                                 <input required type="text" name="port" class="form-control" id="port">
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">Tipo</label>
+                                <label class="form-label">TIpo</label>
                                 <input required type="text" name="topic" class="form-control" id="topic">
                             </div>
                         </div>
@@ -182,18 +182,27 @@
                     
                     <div id="modbus" style="padding: 0px; display: none;">
                         <div class="d-flex" style="padding-top: 10px;">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="comunicacion" class="form-label">Comunicacion</label>
                                 <input required type="text" name="comunicacion" class="form-control" id="comunicacion"
                                     value="TCP" readonly>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="address" class="form-label">Direccion de Unidad</label>
                                 <input required type="text" name="address" class="form-control" id="address">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <label for="port" class="form-label">Puerto</label>
                                 <input required type="text" name="port" class="form-control" id="port">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="function" class="form-label">Funcion</label>
+                                <select required id="function" name="function" class="form-select">
+                                    <option value="0">Read Coils</option>
+                                    <option value="1">Read Discret Inputs</option>
+                                    <option value="3">Read Holding Register</option>
+                                    <option value="4">Read Input Register</option>
+                                </select>
                             </div>
                         </div>
                     </div>

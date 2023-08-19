@@ -16,6 +16,7 @@ from pickle import TRUE
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,7 +26,8 @@ SECRET_KEY = 'django-insecure-*txbd*3mq(dt=%h+2k)xd!dbvwppk3k6(uf^vbdvg7+jx10rky
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TRUE
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["0.0.0.0","localhost", "200.126.14.238"]
+
 
 # Application definition
 
@@ -51,10 +53,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'zenith.urls'
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
 
 TEMPLATES = [
     {
@@ -74,27 +72,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'zenith.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get('MYSQL_DATABASE'),
-        "USER": os.environ.get('MYSQL_USER'),
-        "HOST": os.environ.get('MYSQL_HOST'),
-        "PORT": os.environ.get('MYSQL_PORT'),
-        "PASSWORD": os.environ.get('MYSQL_PASSWORD'),
+        "NAME": "zenith",
+        "USER": "root",
+        "PASSWORD": "root",
+        "HOST": "db",
+        "PORT": 3306,
     }
 }
 
 RABBITMQ = {
     "default": {
-        "PORT": os.environ.get('RABBITMQ_PORT'),
-        "HOST": os.environ.get('RABBITMQ_HOST'),
-        "USER": os.environ.get('RABBITMQ_USER'),
-        "PASSWORD": os.environ.get('RABBITMQ_PASSWORD'),
-        "QUEUE": os.environ.get('RABBITMQ_PUBLISH_QUEUE')
+        "PORT": 5672,
+        "HOST": "rabbitmq",
+        "USER": "guest",
+        "PASSWORD": "guest",
+        "QUEUE": "request_parsing"
     }
 }
 
@@ -119,6 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -129,6 +129,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

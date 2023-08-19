@@ -2,6 +2,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from sensor_driver.views import deleteEquip, equiplistSensor, updateEquip,updateFormEquip,equipformSensor,postEquip,updateFormSpace, updateSpace,postSpace,spacelistSensor,spaceformSensor,updateFormZone, updateZone,zonelistSensor,zoneformSensor,updateFormSensor, login_required,listSensor, formSensor, postSensor, postZone, deleteSensor, updateSensor
+
 urlpatterns = [
     path('zoneform/',  zoneformSensor, name="zoneformSensor"),
     path('updateFormZone/<int:id>', updateFormZone, name="updateFormZone"),

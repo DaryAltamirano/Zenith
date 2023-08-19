@@ -8,8 +8,26 @@ from sensor_driver.management.commands.supports.ConnectionRabbitMQ import Connec
 from sensor_driver.models import HaystackTag, Sensor, Zone,Space, Equip,  Request as Request_Model, Scheduler
 from django.shortcuts import redirect
 from rest_framework import status
+from sensor_driver.serializers import EquipSerializer, SensorSerializer, HaystackTagSerializer
+from rest_framework import viewsets
+from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework import generics
+from rest_framework import filters
+from django_filters.rest_framework import DjangoFilterBackend
 
+
+class EquipViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Equip.objects.all()
+    serializer_class = EquipSerializer
+
+class SensorViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Sensor.objects.all()
+    serializer_class = SensorSerializer
+
+class HaystackTagViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = HaystackTag.objects.all()
+    serializer_class = HaystackTagSerializer
 
 @login_required(login_url="/login/")
 def formSensor(request):
@@ -159,7 +177,7 @@ def updateSensor(request, id):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
 
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "protocol": data.get('protocol'), "action": "update_sensor"}),
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action": "update_sensor"}),
                           "scheduler_cron_jobs")
     return redirect("/sensor/list/")
 
@@ -284,6 +302,7 @@ def postSensor(request):
             "uri": data.get('uri'),
             "address": data.get('address'),
             "communication": data.get('comunicacion'),
+            "function": data.get('function'),
             "port": data.get('port')
         }
     if data.get('protocol') == "coap":
@@ -330,7 +349,7 @@ def postSensor(request):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
 
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "protocol": data.get('protocol'),"action": "new_sensor"}), "scheduler_cron_jobs")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action": "new_sensor"}), "scheduler_cron_jobs")
     return redirect("/sensor/list/")
 
 
@@ -349,7 +368,7 @@ def deleteSensor(request, id):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
     print('respuesta')
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "protocol":sensor.protocol, "action": "delete_sensor"}), "scheduler_cron_jobs")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action": "delete_sensor"}), "scheduler_cron_jobs")
     return JsonResponse({"status": "ok"})
 
 @login_required
@@ -357,3 +376,6 @@ def deleteSensor(request, id):
 def deleteEquip(request, id):
     Equip.objects.filter(id=id).delete()
     return JsonResponse({"status": "ok"})
+
+
+

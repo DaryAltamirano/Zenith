@@ -21,9 +21,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include
 from django.views.generic import RedirectView
+from rest_framework.routers import DefaultRouter
+from sensor_driver.views  import EquipViewSet, SensorViewSet, HaystackTagViewSet
+
+router = DefaultRouter()
+router.register(r'equips', EquipViewSet)
+router.register(r'sensors', SensorViewSet)
+router.register(r'haystacktags', HaystackTagViewSet)
 
 urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='admin/login.html'), name='login'),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     path('sensor/', include('sensor_driver.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='admin/login.html'), name='login'),

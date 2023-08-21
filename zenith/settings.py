@@ -79,23 +79,24 @@ WSGI_APPLICATION = 'zenith.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "zenith",
-        "USER": "root",
-        "PASSWORD": "root",
-        "HOST": "db",
-        "PORT": 3306,
+        "NAME": os.environ.get('MYSQL_DATABASE'),
+        "USER": os.environ.get('MYSQL_USER'),
+        "HOST": os.environ.get('MYSQL_HOST'),
+        "PORT": os.environ.get('MYSQL_PORT'),
+        "PASSWORD": os.environ.get('MYSQL_PASSWORD'),
     }
 }
 
 RABBITMQ = {
     "default": {
-        "PORT": 5672,
-        "HOST": "rabbitmq",
-        "USER": "guest",
-        "PASSWORD": "guest",
-        "QUEUE": "request_parsing"
+        "PORT": os.environ.get('RABBITMQ_PORT'),
+        "HOST": os.environ.get('RABBITMQ_HOST'),
+        "USER": os.environ.get('RABBITMQ_USER'),
+        "PASSWORD": os.environ.get('RABBITMQ_PASSWORD'),
+        "QUEUE": os.environ.get('RABBITMQ_PUBLISH_QUEUE')
     }
 }
+
 
 LOGIN_REDIRECT_URL = '/sensor/list/'
 LOGOUT_REDIRECT_URL = '/login/'

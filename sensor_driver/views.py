@@ -349,9 +349,8 @@ def postSensor(request):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
 
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action": "new_sensor"}), "scheduler_cron_jobs")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": sensor.id, "action": "new_sensor", "protocol": data.get('protocol')}), "scheduler_cron_jobs")
     return redirect("/sensor/list/")
-
 
 @login_required
 @api_view(['DELETE'])

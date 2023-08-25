@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*txbd*3mq(dt=%h+2k)xd!dbvwppk3k6(uf^vbdvg7+jx10rky
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = TRUE
 
-ALLOWED_HOSTS = ["0.0.0.0","localhost", "200.126.14.238"]
+ALLOWED_HOSTS = ["0.0.0.0","localhost", "200.126.14.238","127.0.0.1","zenith-gcloud2-s7lot4v3ja-uc.a.run.app"]
 
 
 # Application definition

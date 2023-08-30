@@ -312,7 +312,7 @@ def postSensor(request):
         
         conecction_dict = {
             "uri": data.get('uri'),
-            "method":  data.get('hora'),
+            "method":  data.get('method'),
             "port": data.get('port')
         }
         scheduler_data = Scheduler(

@@ -1,24 +1,26 @@
-# kubectl apply -f https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
-
-apiVersion: rabbitmq.com/v1beta1
-kind: RabbitmqCluster
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: production-rabbitmqcluster
+  name: rabbitmq-deployment
+  namespace: zenith-beta
 spec:
-  replicas: 3
-  resources:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-    limits:
-      cpu: 1
-      memory: 2Gi
-  rabbitmq:
-          additionalConfig: |
-                  log.console.level = info
-                  channel_max = 1700
-                  default_user= guest 
-                  default_pass = guest
-                  default_user_tags.administrator = true
-  service:
-    type: LoadBalancer
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+        - name: rabbitmq
+          image: "rabbitmq:3.9-management"
+          ports:
+            - containerPort: 5672  # Puerto para conexiones AMQP
+            - containerPort: 15672  # Puerto para el panel de control de RabbitMQ
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: "dary"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "dary"

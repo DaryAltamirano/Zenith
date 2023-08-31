@@ -12,7 +12,6 @@ services:
       - "8000:8000"
     depends_on:
       - db
-      - rabbitmq
     networks:
       - zenith
   db:
@@ -33,20 +32,20 @@ services:
       - zenith
 
       
-  rabbitmq:
-    image: rabbitmq:3.11-management
-    container_name: rabbitmq-test
-    tty: true
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-      RABBITMQ_DEFAULT_VHOST: "/"
-
-    networks:
-      - zenith
+  #rabbitmq:
+   # image: rabbitmq:3.11-management
+    #container_name: rabbitmq-test
+   # tty: true
+    #ports:
+   #   - "5672:5672"
+    #  - "15672:15672"
+    #environment:
+    #  RABBITMQ_DEFAULT_USER: "guest"
+     # RABBITMQ_DEFAULT_PASS: "guest"
+     # RABBITMQ_DEFAULT_VHOST: "/"
+ 
+  #  networks:
+   #   - zenith
 
 networks:
   zenith:

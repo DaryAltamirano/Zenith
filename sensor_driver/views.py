@@ -367,7 +367,7 @@ def deleteSensor(request, id):
     rabbitMq = ConnectionRabbitMQ()
     channel = rabbitMq.channel()
     print('respuesta')
-    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action": "delete_sensor"}), "scheduler_cron_jobs")
+    rabbitMq.basicPublish(channel, json.dumps({"sensor_id": id, "action": "delete_sensor", "protocol": sensor.protocol }), "scheduler_cron_jobs")
     return JsonResponse({"status": "ok"})
 
 @login_required
